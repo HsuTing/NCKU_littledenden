@@ -12,5 +12,6 @@ $('.ui.menu')
 
 $('.item.dropdown')
   .dropdown({
-    on: 'hover'
+    on: 'hover',
+    action: 'hide'
   });

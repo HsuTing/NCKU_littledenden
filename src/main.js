@@ -13,7 +13,7 @@
             <Item className="ui dropdown" type="link">
               歡迎新生
               <Icon className="dropdown"></Icon>
-              <Menu className="submain">
+              <div className="menu submain">
                 <Item>醫學院</Item>
                 <Item>生物科學與科技學院</Item>
                 <Item>管理學院</Item>
@@ -24,15 +24,15 @@
                 <Item>電機資訊學院</Item>
                 <Item>文學院</Item>
                 <Item>不分學院</Item>
-              </Menu>
+              </div>
             </Item>
             <Item className="ui dropdown" type="link">
               新生須知
               <Icon className="dropdown"></Icon>
-              <Menu className="submain">
+              <div className="menu submain">
                 <Item>入學資訊</Item>
                 <Item>常見Ｑ＆Ａ</Item>
-              </Menu>
+              </div>
             </Item>
             <Item type="link">學校資源</Item>
           </Menu>

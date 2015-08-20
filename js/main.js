@@ -13,7 +13,7 @@
             React.createElement(Item, {className: "ui dropdown", type: "link"}, 
               "歡迎新生", 
               React.createElement(Icon, {className: "dropdown"}), 
-              React.createElement(Menu, {className: "submain"}, 
+              React.createElement("div", {className: "menu submain"}, 
                 React.createElement(Item, null, "醫學院"), 
                 React.createElement(Item, null, "生物科學與科技學院"), 
                 React.createElement(Item, null, "管理學院"), 
@@ -29,7 +29,7 @@
             React.createElement(Item, {className: "ui dropdown", type: "link"}, 
               "新生須知", 
               React.createElement(Icon, {className: "dropdown"}), 
-              React.createElement(Menu, {className: "submain"}, 
+              React.createElement("div", {className: "menu submain"}, 
                 React.createElement(Item, null, "入學資訊"), 
                 React.createElement(Item, null, "常見Ｑ＆Ａ")
               )
