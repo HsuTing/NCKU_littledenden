@@ -3,7 +3,37 @@
   var Item = Semantify.Item;
   var Icon = Semantify.Icon;
 
-  var TopMenu = React.createClass({
+  var data = [
+    {"text": "醫學院"},
+    {"text": "生物科學與科技學院"},
+    {"text": "管理學院"},
+    {"text": "工學院"},
+    {"text": "理學院"},
+    {"text": "規劃與設計學院"},
+    {"text": "社會科學院"},
+    {"text": "電機資訊學院"},
+    {"text": "文學院"},
+    {"text": "不分學院"}
+  ];
+
+  var SubMenu = React.createClass({
+    render: function() {
+      var SubMenuNodes = this.props.data.map(function (item) {
+        return (
+          <Item>
+            {item.text}
+          </Item>
+        );
+      });
+      return (
+        <div className="menu submenu">
+          {SubMenuNodes}
+        </div>
+      );
+    }
+  });
+
+  var MainMenu = React.createClass({
     render: function () {
       return (
         <Menu className="secondary">
@@ -13,18 +43,7 @@
             <Item className="ui dropdown" type="link">
               歡迎新生
               <Icon className="dropdown"></Icon>
-              <div className="menu submain">
-                <Item>醫學院</Item>
-                <Item>生物科學與科技學院</Item>
-                <Item>管理學院</Item>
-                <Item>工學院</Item>
-                <Item>理學院</Item>
-                <Item>規劃與設計學院</Item>
-                <Item>社會科學院</Item>
-                <Item>電機資訊學院</Item>
-                <Item>文學院</Item>
-                <Item>不分學院</Item>
-              </div>
+              <SubMenu data={this.props.data} />
             </Item>
             <Item className="ui dropdown" type="link">
               新生須知
@@ -42,7 +61,7 @@
   });
  
   React.render(
-    <TopMenu/>,
+    <MainMenu data={data} />,
     document.getElementById('content')
   );
 })();
