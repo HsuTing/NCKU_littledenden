@@ -1,0 +1,2 @@
+var semantic = {};
+semantic.menu = {};

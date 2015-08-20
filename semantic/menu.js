@@ -1,17 +1,19 @@
-$('.ui.menu')
-  .on('click', '.item', function() {
-    if(!$(this).hasClass('dropdown')) {
-      $(this)
-        .addClass('active')
-        .closest('.ui.menu')
-        .find('.item')
-          .not($(this))
-          .removeClass('active');
-    }
-  });
+semantic.menu.ready = function() {
+  $('.ui.menu')
+    .on('click', '.item', function() {
+      if(!$(this).hasClass('dropdown')) {
+        $(this)
+          .addClass('active')
+          .closest('.ui.menu')
+          .find('.item')
+            .not($(this))
+            .removeClass('active');
+      }
+    });
 
-$('.item.dropdown')
-  .dropdown({
-    on: 'hover',
-    action: 'hide'
-  });
+  $('.item.dropdown')
+    .dropdown({
+      on: 'hover',
+      action: 'hide'
+    });
+};
