@@ -1,59 +1,90 @@
 (function() {
+  //semantic framework
   var Menu = Semantify.Menu;
   var Item = Semantify.Item;
   var Icon = Semantify.Icon;
 
   var data = [
-    {"text": "醫學院"},
-    {"text": "生物科學與科技學院"},
-    {"text": "管理學院"},
-    {"text": "工學院"},
-    {"text": "理學院"},
-    {"text": "規劃與設計學院"},
-    {"text": "社會科學院"},
-    {"text": "電機資訊學院"},
-    {"text": "文學院"},
-    {"text": "不分學院"}
+    {
+      "item": "首頁",
+      "class": "active",
+      "icon": "",
+      "submenu": []
+    },
+    {
+      "item": "營期資訊",
+      "class": "",
+      "icon": "",
+      "submenu": []
+    },
+    {
+      "item": "歡迎新生",
+      "class": "ui dropdown",
+      "icon": "dropdown",
+      "submenu": [
+        {"item": "醫學院"},
+        {"item": "生物科學與科技學院"},
+        {"item": "管理學院"},
+        {"item": "工學院"},
+        {"item": "理學院"},
+        {"item": "規劃與設計學院"},
+        {"item": "社會科學院"},
+        {"item": "電機資訊學院"},
+        {"item": "文學院"},
+        {"item": "不分學院"}
+      ]
+    },
+    {
+      "item": "新生須知",
+      "class": "ui dropdown",
+      "icon": "dropdown",
+      "submenu": [
+        {"item": "入學資訊"},
+        {"item": "常見Ｑ＆Ａ"}
+      ]
+    },
+    {
+      "item": "學校資源",
+      "class": "",
+      "icon": "",
+      "submenu": []
+    }
   ];
 
-  var subMenu = React.createClass({displayName: "subMenu",
+  var SubMenu = React.createClass({displayName: "SubMenu",
     render: function() {
-      var subMenuNodes = this.props.data.map(function (item) {
+      var SubMenuNodes = this.props.data.map(function (d) {
         return (
           React.createElement(Item, null, 
-            item.text
+            d.item
           )
         );
       });
+
       return (
         React.createElement("div", {className: "menu submenu"}, 
-          subMenuNodes
+          SubMenuNodes
         )
       );
     }
   });
 
-  var mainMenu = React.createClass({displayName: "mainMenu",
+  var MainMenu = React.createClass({displayName: "MainMenu",
     render: function () {
+      var MainMenuNodes = this.props.data.map(function(d) {
+        return (
+          React.createElement(Item, {className: d.class, type: "link"}, 
+            d.item, 
+            React.createElement(Icon, {className: d.icon}), 
+            React.createElement(SubMenu, {data: d.submenu})
+          )
+        );
+      });
+
       return (
         React.createElement(Menu, {className: "secondary"}, 
           React.createElement(Menu, {className: "main right secondary"}, 
-            React.createElement(Item, {className: "active", type: "link"}, "首頁"), 
-            React.createElement(Item, {type: "link"}, "營期資訊"), 
-            React.createElement(Item, {className: "ui dropdown", type: "link"}, 
-              "歡迎新生", 
-              React.createElement(Icon, {className: "dropdown"}), 
-              React.createElement("subMenu", {data: this.props.data})
-            ), 
-            React.createElement(Item, {className: "ui dropdown", type: "link"}, 
-              "新生須知", 
-              React.createElement(Icon, {className: "dropdown"}), 
-              React.createElement("div", {className: "menu submain"}, 
-                React.createElement(Item, null, "入學資訊"), 
-                React.createElement(Item, null, "常見Ｑ＆Ａ")
-              )
-            ), 
-            React.createElement(Item, {type: "link"}, "學校資源")
+            MainMenuNodes
           )
         )
       );
@@ -61,7 +92,7 @@
   });
  
   React.render(
-    React.createElement("mainMenu", {data: data}),
+    React.createElement(MainMenu, {data: data}),
     document.getElementById('content')
   );
 })();
