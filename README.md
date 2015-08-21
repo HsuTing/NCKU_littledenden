@@ -1,8 +1,7 @@
 #NCKU basketball
 
-##library
+##Install
 
-- jquery
-- semantic
-- react
-- d3
+```
+  npm install -i
+```
