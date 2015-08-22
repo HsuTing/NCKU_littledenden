@@ -32,24 +32,41 @@ var TopMenu = React.createClass({
           );
         });
 
-        return (
-          <div className="menu submenu">
-            {SubMenuNodes}
-          </div>
-        );
+        if(this.props.data.length == 0) {
+           return (
+             <div></div>
+           );
+        }
+        else {
+          return (
+            <div className="menu submenu">
+              {SubMenuNodes}
+            </div>
+          );
+        }
       }
     });
 
     var MainMenu = React.createClass({
       render: function () {
         var MainMenuNodes = this.props.data.map(function(d) {
-          return (
-            <Item className={d.class} type="link">
-              {d.item}
-              <Icon className={d.icon}></Icon>
-              <SubMenu data={d.submenu}/>
-            </Item>
-          );
+          if(d.icon == "") {
+            return (
+              <Item className={d.class} type="link">
+                {d.item}
+                <SubMenu data={d.submenu}/>
+              </Item>
+            );
+          }
+          else {
+            return (
+              <Item className={d.class} type="link">
+                {d.item}
+                <Icon className={d.icon}></Icon>
+                <SubMenu data={d.submenu}/>
+              </Item>
+            );
+          }
         });
 
         return (

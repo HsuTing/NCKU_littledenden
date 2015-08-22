@@ -32,24 +32,41 @@ var TopMenu = React.createClass({displayName: "TopMenu",
           );
         });
 
-        return (
-          React.createElement("div", {className: "menu submenu"}, 
-            SubMenuNodes
-          )
-        );
+        if(this.props.data.length == 0) {
+           return (
+             React.createElement("div", null)
+           );
+        }
+        else {
+          return (
+            React.createElement("div", {className: "menu submenu"}, 
+              SubMenuNodes
+            )
+          );
+        }
       }
     });
 
     var MainMenu = React.createClass({displayName: "MainMenu",
       render: function () {
         var MainMenuNodes = this.props.data.map(function(d) {
-          return (
-            React.createElement(Item, {className: d.class, type: "link"}, 
-              d.item, 
-              React.createElement(Icon, {className: d.icon}), 
-              React.createElement(SubMenu, {data: d.submenu})
-            )
-          );
+          if(d.icon == "") {
+            return (
+              React.createElement(Item, {className: d.class, type: "link"}, 
+                d.item, 
+                React.createElement(SubMenu, {data: d.submenu})
+              )
+            );
+          }
+          else {
+            return (
+              React.createElement(Item, {className: d.class, type: "link"}, 
+                d.item, 
+                React.createElement(Icon, {className: d.icon}), 
+                React.createElement(SubMenu, {data: d.submenu})
+              )
+            );
+          }
         });
 
         return (

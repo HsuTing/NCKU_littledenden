@@ -32,15 +32,25 @@ var Body = React.createClass({
           );
         });
 
-        return (
-          <div> 
-            <Menu className="top attached tabular">
-              {BodyItemNodes}
-            </Menu>
-            <Segment className="bottom attached">
-            </Segment>
-          </div>
-        );
+        if(this.props.data.length == 0) {
+          return (
+            <div>
+              <Segment className="bottom attached">
+              </Segment>
+            </div>
+          );
+        }
+        else {
+          return (
+            <div> 
+              <Menu className="top attached tabular">
+                {BodyItemNodes}
+              </Menu>
+              <Segment className="bottom attached">
+              </Segment>
+            </div>
+          );
+        }
       }
     });
 
