@@ -1,4 +1,4 @@
-var Body = React.createClass({
+var BodyTab = React.createClass({displayName: "BodyTab",
   getInitialState: function() {
     return {data: []};
   },
@@ -22,40 +22,33 @@ var Body = React.createClass({
     var Item = Semantify.Item;
     var Segment = Semantify.Segment;
 
-    var BodyItem = React.createClass({
+    var BodyItem = React.createClass({displayName: "BodyItem",
       render: function() {
         var BodyItemNodes = this.props.data.map(function (d) {
           return (
-            <Item className={d.class} type="link">
-              {d.item}
-            </Item>
+            React.createElement(Item, {className: d.class, type: "link"}, 
+              d.item
+            )
           );
         });
 
         if(this.props.data.length == 0) {
           return (
-            <div>
-              <Segment className="bottom attached">
-              </Segment>
-            </div>
+            React.createElement("div", null)
           );
         }
         else {
           return (
-            <div> 
-              <Menu className="top attached tabular">
-                {BodyItemNodes}
-              </Menu>
-              <Segment className="bottom attached">
-              </Segment>
-            </div>
+            React.createElement(Menu, {className: "top attached tabular"}, 
+              BodyItemNodes
+            )
           );
         }
       }
     });
 
     return (
-      <BodyItem data={this.state.data}/>
+      React.createElement(BodyItem, {data: this.state.data})
     );
   }
 });

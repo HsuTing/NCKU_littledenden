@@ -22,39 +22,70 @@ var TopMenu = React.createClass({
     var Item = Semantify.Item;
     var Icon = Semantify.Icon;
 
-    var SubMenu = React.createClass({
-      render: function() {
-        var SubMenuNodes = this.props.data.map(function (d) {
-          return (
-            <Item>
-              {d.item}
-            </Item>
-          );
-        });
-
-        if(this.props.data.length == 0) {
-           return (
-             <div></div>
-           );
-        }
-        else {
-          return (
-            <div className="menu submenu">
-              {SubMenuNodes}
-            </div>
-          );
-        }
-      }
-    });
-
+//main meun start
     var MainMenu = React.createClass({
       render: function () {
+//sub menu start
+        var SubMenu = React.createClass({
+          render: function() {
+            var SubMenuNodes = this.props.data.map(function (d) {
+              var tab_url=d.tab_url;
+              var content_url=d.content_url;
+              var choice = function() {
+  //body`s tab start
+                $('#body_tab').empty();
+                React.render(
+                  <BodyTab url={tab_url}/>,
+                  document.getElementById('body_tab')
+                );
+  //body`s tab end
+  //body`s content start
+                $('#body_content').empty();
+                React.render(
+                  <BodyContent.Zero url={content_url}/>,
+                  document.getElementById('body_content')
+                );
+  //body`s content end
+              };
+
+              return (
+                <Item onClick={choice}>
+                  {d.item}
+                </Item>
+              );
+            });
+
+            if(this.props.data.length == 0) {
+               return (
+                 <div></div>
+               );
+            }
+            else {
+              return (
+                <div className="menu submenu">
+                  {SubMenuNodes}
+                </div>
+              );
+            }
+          }
+        });
+//sub menu end
         var MainMenuNodes = this.props.data.map(function(d) {
+          var content_url=d.content_url;
+          var choice = function() {
+  //body`s content start
+            $('#body_content').empty();
+            React.render(
+              <BodyContent.Zero url={content_url}/>,
+              document.getElementById('body_content')
+            );
+  //body1s content end
+          };
+
           if(d.icon == "") {
             return (
-              <Item className={d.class} type="link">
+              <Item className={d.class} type="link" onClick={choice}>
                 {d.item}
-                <SubMenu data={d.submenu}/>
               </Item>
             );
           }
@@ -76,7 +107,7 @@ var TopMenu = React.createClass({
         );
       }
     });
-
+//main menu end
     return (
       <Menu className="secondary">
         <MainMenu data={this.state.data}/>

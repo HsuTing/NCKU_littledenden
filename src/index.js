@@ -5,7 +5,12 @@
   );
 
   React.render(
-    <Body url="arc/home.json"/>,
-    document.getElementById('body')
+    <BodyTab url="arc/empty.json"/>,
+    document.getElementById('body_tab')
+  );
+
+  React.render(
+    <BodyContent.Zero url="arc/home.json"/>,
+    document.getElementById('body_content')
   );
 })();
