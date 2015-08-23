@@ -4,15 +4,25 @@ NCKU freshman camp
 ##Install
 
 ```
-  npm install -i
+  func init
 ```
 
-##Usage
-
-Make js(in js) from jsx(in src):
+##Npm
 
 ```
-  sh jsx.sh
+  ./func npm (argument)
 ```
 
-This will look at the folder "src" and "js".
+##Bower
+
+```
+  ./func bower (argument)
+```
+
+##Transform
+
+Transform js from jsx:
+
+```
+  ./func jsx
+```

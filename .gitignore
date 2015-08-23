@@ -1,3 +1,4 @@
-node_modules/
-*log
+lib/node_modules/
 js/.module-cache/
+src/
+*log
