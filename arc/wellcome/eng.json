@@ -4,55 +4,68 @@
   "tab": [
     {
       "item": "機械系",
-      "class": "active"
+      "class": "active",
+      "text": "機械系內容"
     },
     {
       "item": "化工系",
-      "class": ""
+      "class": "",
+      "text": "化工系內容"
     },
     {
       "item": "資源系",
-      "class": ""
+      "class": "",
+      "text": "資源系內容"
     },
     {
       "item": "土木系",
-      "class": ""
+      "class": "",
+      "text": "土木系內容"
     },
     {
       "item": "材料系",
-      "class": ""
+      "class": "",
+      "text": "材料系內容"
     },
     {
       "item": "工科系",
-      "class": ""
+      "class": "",
+      "text": "工科系內容"
     },
     {
       "item": "能源學程",
-      "class": ""
+      "class": "",
+      "text": "能源學程內容"
     },
     {
       "item": "環工系",
-      "class": ""
+      "class": "",
+      "text": "環工系內容"
     },
     {
       "item": "航太系",
-      "class": ""
+      "class": "",
+      "text": "航太系內容"
     },
     {
       "item": "系統系",
-      "class": ""
+      "class": "",
+      "text": "系統系內容"
     },
     {
       "item": "醫工系",
-      "class": ""
+      "class": "",
+      "text": "醫工系內容"
     },
     {
       "item": "測量系",
-      "class": ""
+      "class": "",
+      "text": "測量系內容"
     },
     {
       "item": "水利系",
-      "class": ""
+      "class": "",
+      "text": "水利系內容"
     }
   ]
 }

@@ -4,19 +4,23 @@
   "tab": [
     {
       "item": "法律系",
-      "class": "active"
+      "class": "active",
+      "text": "法律系內容"
     },
     {
       "item": "政治系",
-      "class": ""
+      "class": "",
+      "text": "政治系內容"
     },
     {
       "item": "經濟系",
-      "class": ""
+      "class": "",
+      "text": "經濟系內容"
     },
     {
       "item": "心理系",
-      "class": ""
+      "class": "",
+      "text": "心理系內容"
     }
   ]
 }

@@ -4,11 +4,13 @@
   "tab": [
     {
       "item": "電機系",
-      "class": "active"
+      "class": "active",
+      "text": "電機系內容"
     },
     {
       "item": "資訊系",
-      "class": ""
+      "class": "",
+      "text": "資訊系內容"
     }
   ]
 }

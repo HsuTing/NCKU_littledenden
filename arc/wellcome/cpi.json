@@ -4,7 +4,8 @@
   "tab": [
     {
       "item": "學士學程",
-      "class": "active"
+      "class": "active",
+      "text": "學士學程內容"
     }
   ]
 }
