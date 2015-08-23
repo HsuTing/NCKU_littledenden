@@ -29,27 +29,17 @@ var TopMenu = React.createClass({
         var SubMenu = React.createClass({
           render: function() {
             var SubMenuNodes = this.props.data.map(function (d) {
-              var tab_url=d.tab_url;
-              var content_url=d.content_url;
-              var choice = function() {
-  //body`s tab start
-                $('#body_tab').empty();
+              var body_url = d.url;
+              var click = function() {
+                $('#body').empty();
                 React.render(
-                  <BodyTab url={tab_url}/>,
-                  document.getElementById('body_tab')
+                  <Body url={body_url}/>,
+                  document.getElementById('body')
                 );
-  //body`s tab end
-  //body`s content start
-                $('#body_content').empty();
-                React.render(
-                  <BodyContent.Zero url={content_url}/>,
-                  document.getElementById('body_content')
-                );
-  //body`s content end
               };
 
               return (
-                <Item onClick={choice}>
+                <Item onClick={click}>
                   {d.item}
                 </Item>
               );
@@ -71,20 +61,18 @@ var TopMenu = React.createClass({
         });
 //sub menu end
         var MainMenuNodes = this.props.data.map(function(d) {
-          var content_url=d.content_url;
-          var choice = function() {
-  //body`s content start
-            $('#body_content').empty();
+          var body_url = d.url;
+          var click = function() {
+            $('#body').empty();
             React.render(
-              <BodyContent.Zero url={content_url}/>,
-              document.getElementById('body_content')
+              <Body url={body_url}/>,
+              document.getElementById('body')
             );
-  //body1s content end
           };
 
-          if(d.icon == "") {
+          if(d.submenu.length == 0) {
             return (
-              <Item className={d.class} type="link" onClick={choice}>
+              <Item className={d.class} type="link" onClick={click}>
                 {d.item}
               </Item>
             );
