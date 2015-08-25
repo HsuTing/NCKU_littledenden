@@ -29,12 +29,11 @@ var TopMenu = React.createClass({
         var SubMenu = React.createClass({
           render: function() {
             var SubMenuNodes = this.props.data.map(function (d) {
-              var body_url = d.url;
               var click = function() {
-                $('#body').empty();
+                Content.Init();
                 React.render(
-                  <Body url={body_url}/>,
-                  document.getElementById('body')
+                  <Content.Main url={d.url}/>,
+                  document.getElementById('content')
                 );
               };
 
@@ -61,12 +60,11 @@ var TopMenu = React.createClass({
         });
 //sub menu end
         var MainMenuNodes = this.props.data.map(function(d) {
-          var body_url = d.url;
           var click = function() {
-            $('#body').empty();
+            Content.Init();
             React.render(
-              <Body url={body_url}/>,
-              document.getElementById('body')
+              <Content.Main url={d.url}/>,
+              document.getElementById('content')
             );
           };
 

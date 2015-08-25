@@ -5,7 +5,7 @@
   );
 
   React.render(
-    <Body url="arc/home.json"/>,
-    document.getElementById('body')
+    <Content.Main url="arc/home.json"/>,
+    document.getElementById('content')
   );
 })();

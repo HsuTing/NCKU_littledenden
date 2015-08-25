@@ -4,17 +4,17 @@
   "tab": [
     {
       "item": "建築系",
-      "class": "active",
+      "class": "tab active",
       "text": "建築系內容"
     },
     {
       "item": "都計系",
-      "class": "",
+      "class": "tab",
       "text": "都計系內容"
     },
     {
       "item": "工設系",
-      "class": "",
+      "class": "tab",
       "text": "工設系內容"
     }
   ]

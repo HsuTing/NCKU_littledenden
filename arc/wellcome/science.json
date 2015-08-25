@@ -4,27 +4,27 @@
   "tab": [
     {
       "item": "數學系",
-      "class": "active",
+      "class": "tab active",
       "text": "數學系內容"
     },
     {
       "item": "物理系",
-      "class": "",
+      "class": "tab",
       "text": "物理系內容"
     },
     {
       "item": "化學系",
-      "class": "",
+      "class": "tab",
       "text": "化學系內容"
     },
     {
       "item": "地科系",
-      "class": "",
+      "class": "tab",
       "text": "地科系內容"
     },
     {
       "item": "光電系",
-      "class": "",
+      "class": "tab",
       "text": "光電系內容"
     }
   ]

@@ -4,32 +4,32 @@
   "tab": [
     {
       "item": "護理系",
-      "class": "active",
+      "class": "tab active",
       "text": "護理系內容"
     },
     {
       "item": "醫技系",
-      "class": "",
+      "class": "tab",
       "text": "醫技系內容"
     },
     {
       "item": "醫學系",
-      "class": "",
+      "class": "tab",
       "text": "醫學系內容"
     },
     {
       "item": "物治系",
-      "class": "",
+      "class": "tab",
       "text": "物治系內容"
     },
     {
       "item": "職治系",
-      "class": "",
+      "class": "tab",
       "text": "職治系內容"
     },
     {
       "item": "藥學系",
-      "class": "",
+      "class": "tab",
       "text": "藥學系內容"
     }
   ]

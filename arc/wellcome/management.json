@@ -4,27 +4,27 @@
   "tab": [
     {
       "item": "會計系",
-      "class": "active",
+      "class": "tab active",
       "text": "會計系內容"
     },
     {
       "item": "工資系",
-      "class": "",
+      "class": "tab",
       "text": "工資系內容"
     },
     {
       "item": "統計系",
-      "class": "",
+      "class": "tab",
       "text": "統計系內容"
     },
     {
       "item": "企管系",
-      "class": "",
+      "class": "tab",
       "text": "企管系內容"
     },
     {
       "item": "交管系",
-      "class": "",
+      "class": "tab",
       "text": "交管系內容"
     }
   ]

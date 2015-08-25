@@ -4,22 +4,22 @@
   "tab": [
     {
       "item": "中文系",
-      "class": "active",
+      "class": "tab active",
       "text": "中文系內容"
     },
     {
       "item": "外文系",
-      "class": "",
+      "class": "tab",
       "text": "外文系內容"
     },
     {
       "item": "歷史系",
-      "class": "",
+      "class": "tab",
       "text": "歷史系內容"
     },
     {
       "item": "台文系",
-      "class": "",
+      "class": "tab",
       "text": "台文系內容"
     }
   ]
