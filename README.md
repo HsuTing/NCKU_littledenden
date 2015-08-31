@@ -18,9 +18,14 @@ NCKU freshman camp
   ./func bower (argument)
 ```
 
-- Transform js from jsx:
+- Transform js from jsx and browserify file:
 ```
-  ./func jsx
+  ./func trans
+```
+
+- Minify js file:
+```
+  ./func min
 ```
 
 ##Folder
@@ -40,9 +45,9 @@ NCKU freshman camp
   This folder has js files.
 ```
 
-- lib
+- dist
 ```
-  This folder has all files about npm and bower.
+  This folder has all files about npm and bower, and temporary js files.
 ```
 
 - src

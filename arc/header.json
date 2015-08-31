@@ -1,0 +1,97 @@
+[
+  {
+    "id": "home",
+    "text": "首頁",
+    "class": "active",
+    "submenu": [
+    ]
+  },
+  {
+    "id": "info",
+    "text": "營期資訊",
+    "class": "",
+    "submenu": [
+    ]
+  },
+  {
+    "id": "wellcome",
+    "text": "歡迎新生",
+    "class": "ui dropdown",
+    "submenu": [
+      {
+        "id": "cm",
+        "text": "醫學院",
+        "class": ""
+      },
+      {
+        "id": "bb",
+        "text": "生物科學與科技學院",
+        "class": ""
+      },
+      {
+        "id": "management",
+        "text": "管理學院",
+        "class": ""
+      },
+      {
+        "id": "eng",
+        "text": "工學院",
+        "class": ""
+      },
+      {
+        "id": "science",
+        "text": "理學院",
+        "class": ""
+      },
+      {
+        "id": "design",
+        "text": "規劃與設計學院",
+        "class": ""
+      },
+      {
+        "id": "css",
+        "text": "社會科學院",
+        "class": ""
+      },
+      {
+        "id": "eecs",
+        "text": "電機資訊學院",
+        "class": ""
+      },
+      {
+        "id": "liberal",
+        "text": "文學院",
+        "class": ""
+      },
+      {
+        "id": "cpi",
+        "text": "不分學院",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "id": "notice",
+    "text": "新生須知",
+    "class": "ui dropdown",
+    "submenu": [
+      {
+        "id": "information",
+        "text": "入學資訊",
+        "class": ""
+      },
+      {
+        "id": "QA",
+        "text": "常見Ｑ＆Ａ",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "id": "school",
+    "text": "學校資源",
+    "class": "",
+    "submenu": [
+    ]
+  }
+]

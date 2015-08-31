@@ -1,0 +1,21 @@
+{
+  "name": "NCKU_littledenden",
+  "main": "index.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/HsuTing/NCKU_littledenden",
+  "authors": [
+    "HsuTing <hsuting0106@gmail.com>"
+  ],
+  "description": "NCKU freshman camp",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "semantic": "~2.0.8"
+  }
+}

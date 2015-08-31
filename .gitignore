@@ -1,4 +1,4 @@
-lib/node_modules/
-js/.module-cache/
-src/
+node_modules/
+.module-cache/
+dist/*.js
 *log

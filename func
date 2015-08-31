@@ -1,15 +1,57 @@
-#!/bin/sh
-if [ "$#" = 1 ]; then
-  if [ "$1" = "init" ]; then
-    cd lib
+#!/bin/bash
+path=dist
+
+js=(semantic header index)
+#js=(header index)
+minjs=(index)
+
+#color
+red=`tput setaf 1`
+reset=`tput sgr0`
+
+if [ $# = 1 ]; then
+#start
+  if [ $1 = init ]; then
+    cd ${path}
     npm install -i
-  elif  [ "$1" = "jsx" ]; then
-    lib/node_modules/react-tools/bin/jsx src js/
+
+#transform js from jsx and browerify js file
+  elif [ $1 = trans ]; then
+    echo
+    echo "jsx"
+    echo "src->dist"
+    ${path}/node_modules/.bin/jsx src/ dist/
+
+    echo
+    echo "browserify"
+    echo "dist->js"
+    cd ${path}
+    for item in ${js[*]}; do
+      node_modules/.bin/browserify ${item}.js > ../js/${item}.js
+      echo "${red}${item}.js is complate.${reset}"
+    done
+    echo "done"
+    echo 
+
+#minify js
+  elif [ $1 = min ]; then
+    echo
+    echo "minifier"
+    cd js
+    for item in ${minjs[*]}; do
+      ../${path}/node_modules/.bin/minify ${item}.js --output ${item}.min.js
+    done
+    echo "done"
+    echo
   fi
-elif [ "$1" = "npm" ]; then
-  cd lib
+
+#use npm
+elif [ $1 = npm ]; then
+  cd ${path}
   $@
+
+#use bower
 elif [ "$1" = "bower" ]; then
-  cd lib
-  node_modules/bower/bin/$@
+  cd ${path}
+  node_modules/.bin/$@
 fi
