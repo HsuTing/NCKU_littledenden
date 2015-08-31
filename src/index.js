@@ -1,11 +1,5 @@
-(function() {
-  React.render(
-    <TopMenu url="arc/top_menu.json"/>,
-    document.getElementById('top_menu')
-  );
+Header = require('./header.js');
 
-  React.render(
-    <Content.Main url="arc/home.json"/>,
-    document.getElementById('content')
-  );
+(function() {
+  Header();
 })();
