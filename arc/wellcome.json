@@ -1,0 +1,52 @@
+[
+  {
+    "id": "cm",
+    "text": "醫學院",
+    "class": ""
+  },
+  {
+    "id": "bb",
+    "text": "生物科學與科技學院",
+    "class": ""
+  },
+  {
+    "id": "management",
+    "text": "管理學院",
+    "class": ""
+  },
+  {
+    "id": "eng",
+    "text": "工學院",
+    "class": ""
+  },
+  {
+    "id": "science",
+    "text": "理學院",
+    "class": ""
+  },
+  {
+    "id": "design",
+    "text": "規劃與設計學院",
+    "class": ""
+  },
+  {
+    "id": "css",
+    "text": "社會科學院",
+    "class": ""
+  },
+  {
+    "id": "eecs",
+    "text": "電機資訊學院",
+    "class": ""
+  },
+  {
+    "id": "liberal",
+    "text": "文學院",
+    "class": ""
+  },
+  {
+    "id": "cpi",
+    "text": "不分學院",
+    "class": ""
+  }
+]

@@ -1,5 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-module.exports = function () {
+module.exports = function (url) {
   var $ = require('jquery');
   var React = require('react');
   var Semantic = require('./semantic.js');
@@ -23,58 +23,32 @@ module.exports = function () {
       });
     },
     render: function () {
-      var SubItem = React.createClass({displayName: "SubItem",
+      var Item = React.createClass({displayName: "Item",
         render: function() {
           return (
-            React.createElement(Semantic.Item, null, 
+            React.createElement(Semantic.Item, {className: this.props.data.class, type: "link", id: this.props.data.id}, 
               this.props.data.text
             )
           );
         }
       });
 
-      var SubMenu = React.createClass({displayName: "SubMenu",
-        render: function() {
-          return (
-            React.createElement("div", {className: "menu"}, 
-              this.props.data.map(function(d) {
-                return (
-                  React.createElement(SubItem, {key: d.id, data: d})
-                );
-              })
-            )
-          );
-        }
-      });
-
-      var Item = React.createClass({displayName: "Item",
-        render: function() {
-          if(this.props.data.submenu.length == 0) {
-            return (
-              React.createElement(Semantic.Item, {className: this.props.data.class, type: "link"}, 
-                this.props.data.text
-              )
-            );
-          }
-          else {
-            return (
-              React.createElement(Semantic.Item, {className: this.props.data.class, type: "link"}, 
-                this.props.data.text, 
-                React.createElement(SubMenu, {data: this.props.data.submenu})
-              )
-            );
-          }
-        }
-      });
-
       return (
-        React.createElement(Semantic.Menu, {className: "secondary"}, 
-          React.createElement(Semantic.Menu, {className: "main right secondary"}, 
-            this.state.data.map(function(d) {
-              return (
-                React.createElement(Item, {key: d.id, data: d})
-              );
-            })
+        React.createElement(Semantic.Segment, {className: "vertical masthead center aligned inverted"}, 
+
+          React.createElement("div", {className: "ui container"}, 
+            React.createElement(Semantic.Menu, {className: "large secondary pointing inverted"}, 
+              React.createElement(Semantic.Menu, {className: "main right secondary"}, 
+                this.state.data.map(function(d) {
+                  return (
+                   React.createElement(Item, {key: d.id, data: d})
+                  );
+                })
+              )
+            )
+          ), 
+
+          React.createElement(Semantic.Image, {className: "fluid", src: "img/center.jpg"}
           )
         )
       );
@@ -83,7 +57,7 @@ module.exports = function () {
 
   return (
     React.render(
-      React.createElement(Header, {url: "arc/header.json"}),
+      React.createElement(Header, {url: url}),
       document.getElementById('header')
     )
   );
@@ -38047,6 +38021,10 @@ var Semantic = {};
 Semantic.Menu = Semantify.Menu;
 Semantic.Item = Semantify.Item;
 Semantic.Icon = Semantify.Icon;
+Semantic.Segment = Semantify.Segment;
+Semantic.Image = Semantify.Image;
+Semantic.Header = Semantify.Header;
+Semantic.Divider = Semantify.Divider;
 
 //menu init
 Semantic.menu = {};

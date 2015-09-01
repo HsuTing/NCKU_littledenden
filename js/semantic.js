@@ -37953,6 +37953,10 @@ var Semantic = {};
 Semantic.Menu = Semantify.Menu;
 Semantic.Item = Semantify.Item;
 Semantic.Icon = Semantify.Icon;
+Semantic.Segment = Semantify.Segment;
+Semantic.Image = Semantify.Image;
+Semantic.Header = Semantify.Header;
+Semantic.Divider = Semantify.Divider;
 
 //menu init
 Semantic.menu = {};

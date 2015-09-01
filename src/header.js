@@ -1,4 +1,4 @@
-module.exports = function () {
+module.exports = function (url) {
   var $ = require('jquery');
   var React = require('react');
   var Semantic = require('./semantic.js');
@@ -22,67 +22,41 @@ module.exports = function () {
       });
     },
     render: function () {
-      var SubItem = React.createClass({
+      var Item = React.createClass({
         render: function() {
           return (
-            <Semantic.Item>
+            <Semantic.Item className={this.props.data.class} type="link" id={this.props.data.id}>
               {this.props.data.text}
             </Semantic.Item>
           );
         }
       });
 
-      var SubMenu = React.createClass({
-        render: function() {
-          return (
-            <div className="menu">
-              {this.props.data.map(function(d) {
-                return (
-                  <SubItem key={d.id} data={d}/>
-                );
-              })}
-            </div>
-          );
-        }
-      });
-
-      var Item = React.createClass({
-        render: function() {
-          if(this.props.data.submenu.length == 0) {
-            return (
-              <Semantic.Item className={this.props.data.class} type="link">
-                {this.props.data.text}
-              </Semantic.Item>
-            );
-          }
-          else {
-            return (
-              <Semantic.Item className={this.props.data.class} type="link">
-                {this.props.data.text}
-                <SubMenu data={this.props.data.submenu}/>
-              </Semantic.Item>
-            );
-          }
-        }
-      });
-
       return (
-        <Semantic.Menu className="secondary">
-          <Semantic.Menu className="main right secondary">
-            {this.state.data.map(function(d) {
-              return (
-                <Item key={d.id} data={d}/>
-              );
-            })}
-          </Semantic.Menu>
-        </Semantic.Menu>
+        <Semantic.Segment className="vertical masthead center aligned inverted">
+
+          <div className="ui container">
+            <Semantic.Menu className="large secondary pointing inverted">
+              <Semantic.Menu className="main right secondary">
+                {this.state.data.map(function(d) {
+                  return (
+                   <Item key={d.id} data={d}/>
+                  );
+                })}
+              </Semantic.Menu>
+            </Semantic.Menu>
+          </div>
+
+          <Semantic.Image className="fluid" src="img/center.jpg">
+          </Semantic.Image>
+        </Semantic.Segment>
       );
     }
   });
 
   return (
     React.render(
-      <Header url="arc/header.json"/>,
+      <Header url={url}/>,
       document.getElementById('header')
     )
   );
