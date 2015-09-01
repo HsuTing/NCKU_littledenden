@@ -41,22 +41,24 @@ module.exports = function (url) {
         render: function() {
           return (
             <div className="ui container content">
-              <Semantic.Header className="huge">
-                {this.props.data.header}
-              </Semantic.Header>
-              <Semantic.Divider className="clearing"></Semantic.Divider>
+              <Semantic.Segment className="article">
+                <Semantic.Header className="huge">
+                  {this.props.data.header}
+                </Semantic.Header>
+                <Semantic.Divider className="clearing"></Semantic.Divider>
 
-              {this.props.data.subarticle.map(function(d) {
-                return (
-                  <SubArticle key={d.id} data={d}/>
-                );
-              })}
+                {this.props.data.subarticle.map(function(d) {
+                  return (
+                    <SubArticle key={d.id} data={d}/>
+                  );
+                })}
 
-              <div className="ui right aligned container">
-                <a href={this.props.data.url.url}>
-                  {this.props.data.url.text}
-                </a>
-              </div>
+                <div className="ui right aligned container">
+                  <a href={this.props.data.url.url}>
+                    {this.props.data.url.text}
+                  </a>
+                </div>
+              </Semantic.Segment>
             </div>
           );
         }

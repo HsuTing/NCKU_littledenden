@@ -42,20 +42,22 @@ module.exports = function (url) {
         render: function() {
           return (
             React.createElement("div", {className: "ui container content"}, 
-              React.createElement(Semantic.Header, {className: "huge"}, 
-                this.props.data.header
-              ), 
-              React.createElement(Semantic.Divider, {className: "clearing"}), 
+              React.createElement(Semantic.Segment, {className: "article"}, 
+                React.createElement(Semantic.Header, {className: "huge"}, 
+                  this.props.data.header
+                ), 
+                React.createElement(Semantic.Divider, {className: "clearing"}), 
 
-              this.props.data.subarticle.map(function(d) {
-                return (
-                  React.createElement(SubArticle, {key: d.id, data: d})
-                );
-              }), 
+                this.props.data.subarticle.map(function(d) {
+                  return (
+                    React.createElement(SubArticle, {key: d.id, data: d})
+                  );
+                }), 
 
-              React.createElement("div", {className: "ui right aligned container"}, 
-                React.createElement("a", {href: this.props.data.url.url}, 
-                  this.props.data.url.text
+                React.createElement("div", {className: "ui right aligned container"}, 
+                  React.createElement("a", {href: this.props.data.url.url}, 
+                    this.props.data.url.text
+                  )
                 )
               )
             )
