@@ -33537,6 +33537,9 @@ module.exports = warning;
 
 }).call(this,require('_process'))
 },{"./emptyFunction":189,"_process":1}],232:[function(require,module,exports){
+module.exports = require('./lib/React');
+
+},{"./lib/React":90}],233:[function(require,module,exports){
 /*!
  * # Semantic UI 2.0.8 - Accordion
  * http://github.com/semantic-org/semantic-ui/
@@ -34131,7 +34134,7 @@ $.extend( $.easing, {
 })( require("jquery"), window , document );
 
 
-},{"jquery":2}],233:[function(require,module,exports){
+},{"jquery":2}],234:[function(require,module,exports){
 /*!
  * # Semantic UI 2.0.8 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
@@ -34826,7 +34829,7 @@ _module.exports.settings = {
 };
 
 })( require("jquery"), window , document );
-},{"jquery":2}],234:[function(require,module,exports){
+},{"jquery":2}],235:[function(require,module,exports){
 /*!
  * # Semantic UI 2.0.8 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
@@ -38156,7 +38159,7 @@ _module.exports.settings.templates = {
 
 })( require("jquery"), window , document );
 
-},{"jquery":2}],235:[function(require,module,exports){
+},{"jquery":2}],236:[function(require,module,exports){
 /*!
  * # Semantic UI 2.0.8 - Transition
  * http://github.com/semantic-org/semantic-ui/
@@ -39231,7 +39234,136 @@ _module.exports.settings = {
 
 })( require("jquery"), window , document );
 
-},{"jquery":2}],236:[function(require,module,exports){
+},{"jquery":2}],237:[function(require,module,exports){
+var $ = require('jquery');
+var React = require('react');
+var Semantic = require('./semantic.js');
+
+var Content = React.createClass({displayName: "Content",
+  getInitialState: function() {
+    return {data: {
+       info: {
+         text: "",
+         data: []
+       },
+       QA: {
+         text: "",
+         data: []
+       }
+    }};
+  },
+  componentDidMount: function() {
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      cache: false,
+      success: function(data) {
+        this.setState({data: data});
+        Semantic.dimmer.ready();
+        Semantic.accordion.ready();
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+  render: function () {
+    var Info = React.createClass({displayName: "Info",
+      render: function() {
+        return (
+          React.createElement(Semantic.Card, null, 
+            React.createElement("div", {className: "blurring dimmable image"}, 
+              React.createElement(Semantic.Dimmer, null, 
+                React.createElement("div", {className: "content"}, 
+                  React.createElement("div", {className: "center"}, 
+                    React.createElement("a", {href: this.props.data.url}, 
+                      React.createElement(Semantic.Button, {className: "inverted"}, "瞭解詳情")
+                    )
+                  )
+                )
+              ), 
+              React.createElement(Semantic.Image, {src: this.props.data.img})
+            ), 
+            React.createElement("div", {className: "content"}, 
+              React.createElement("a", {href: this.props.data.url}, 
+                React.createElement(Semantic.Header, null, 
+                  this.props.data.header
+                )
+              ), 
+              React.createElement("div", {className: "meta"}, 
+                React.createElement("span", {className: "date"}, this.props.data.text)
+              )
+            )
+          )
+        );
+      }
+    });
+
+    var Qa = React.createClass({displayName: "Qa",
+       render: function() {
+         return (
+           React.createElement("div", null, 
+             React.createElement("div", {className: this.props.data.class}, 
+               React.createElement(Semantic.Icon, {className: "dropdown"}), 
+               this.props.data.Q
+             ), 
+             React.createElement("div", {className: this.props.data.dataclass}, 
+               this.props.data.data.map(function(d) {
+                 return (
+                   React.createElement("p", {key: d.id}, d.text)
+                 );
+               })
+             )
+           )
+         );
+       }
+    });
+
+    return (
+      React.createElement(Semantic.Segment, {className: "vertical stripe"}, 
+        React.createElement("div", {className: "ui container content"}, 
+          React.createElement(Semantic.Segment, {className: "article"}, 
+            React.createElement(Semantic.Header, {className: "huge"}, 
+              this.state.data.info.text
+            ), 
+            React.createElement(Semantic.Divider, {className: "clearing"}), 
+
+            React.createElement("div", {className: "ui special cards"}, 
+              this.state.data.info.data.map(function(d) {
+                return (
+                  React.createElement(Info, {key: d.id, data: d})
+                );
+              })
+            )
+
+          )
+        ), 
+
+        React.createElement("div", {className: "ui container content"}, 
+          React.createElement(Semantic.Segment, {className: "article"}, 
+            React.createElement(Semantic.Header, {className: "huge"}, 
+              this.state.data.QA.text
+            ), 
+            React.createElement(Semantic.Divider, {className: "clearing"}), 
+
+            React.createElement(Semantic.Accordion, {className: "styled fluid"}, 
+              this.state.data.QA.data.map(function(d) {
+                return (
+                  React.createElement(Qa, {key: d.id, data: d})
+                );
+              })
+            )
+
+          )
+        )
+      )
+   );
+  }
+});
+
+module.exports = Content;
+
+},{"./semantic.js":238,"jquery":2,"react":232}],238:[function(require,module,exports){
 var $ = require('jquery');
 var Semantify = require('react-semantify');
 $.fn.dropdown = require('semantic-ui-dropdown');
@@ -39295,4 +39427,4 @@ Semantic.accordion.ready = function() {
 
 module.exports = Semantic;
 
-},{"jquery":2,"react-semantify":33,"semantic-ui-accordion":232,"semantic-ui-dimmer":233,"semantic-ui-dropdown":234,"semantic-ui-transition":235}]},{},[236]);
+},{"jquery":2,"react-semantify":33,"semantic-ui-accordion":233,"semantic-ui-dimmer":234,"semantic-ui-dropdown":235,"semantic-ui-transition":236}]},{},[237]);

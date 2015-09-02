@@ -1,0 +1,87 @@
+{
+  "info" : {
+    "text": "入學資訊",
+    "data": [
+      {
+        "id": "schedule",
+        "header": "選課資訊",
+        "text": "第三階段選課：9/15～9/17",
+        "url": "http://www.ncku.edu.tw/~register/chinese/choose.htm",
+        "img": "img/schedule.jpg"
+      },
+      {
+        "id": "house",
+        "header": "宿舍入住",
+        "text": "繳費時間：8/28～9/4",
+        "url": "http://housing.osa.ncku.edu.tw/files/13-1065-140091-1.php?Lang=zh-tw",
+        "img": "img/house.jpg"
+      },
+      {
+        "id": "moodle",
+        "header": "moodle教學平台",
+        "text": "未來課程資訊皆會在此平台",
+        "url": "http://moodle.ncku.edu.tw",
+        "img": "img/moodle.jpg"
+      }
+    ]
+  },
+  "QA": {
+    "text": "常見Ｑ＆Ａ",
+     "data": [
+       {
+         "id": "0",
+          "Q": "Q0",
+          "class": "title",
+          "dataclass": "content",
+          "data": [
+            {
+              "id": "0",
+              "text": "t0",
+              "class": ""
+            },
+            {
+              "id": "1",
+              "text": "t1",
+              "class": ""
+            }
+          ]
+       },
+       {
+         "id": "1",
+          "Q": "Q1",
+          "class": "title",
+          "dataclass": "content",
+          "data": [
+            {
+              "id": "0",
+              "text": "t0",
+              "class": ""
+            },
+            {
+              "id": "1",
+              "text": "t1",
+              "class": ""
+            }
+          ]
+       },
+       {
+         "id": "2",
+          "Q": "Q2",
+          "class": "title",
+          "dataclass": "content",
+          "data": [
+            {
+              "id": "0",
+              "text": "t0",
+              "class": ""
+            },
+            {
+              "id": "1",
+              "text": "t1",
+              "class": ""
+            }
+          ]
+       }
+     ]
+  }
+}

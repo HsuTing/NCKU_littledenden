@@ -2,6 +2,8 @@ var $ = require('jquery');
 var Semantify = require('react-semantify');
 $.fn.dropdown = require('semantic-ui-dropdown');
 $.fn.transition = require('semantic-ui-transition');
+$.fn.dimmer = require('semantic-ui-dimmer');
+$.fn.accordion = require('semantic-ui-accordion');
 
 var Semantic = {};
 
@@ -13,6 +15,14 @@ Semantic.Segment = Semantify.Segment;
 Semantic.Image = Semantify.Image;
 Semantic.Header = Semantify.Header;
 Semantic.Divider = Semantify.Divider;
+Semantic.Card = Semantify.Card;
+Semantic.Image = Semantify.Image;
+Semantic.Dimmer = Semantify.Dimmer;
+Semantic.Button = Semantify.Button;
+Semantic.Accordion = Semantify.Accordion;
+Semantic.Table = Semantify.Table;
+Semantic.List = Semantify.List;
+Semantic.Grid = Semantify.Grid;
 
 //menu init
 Semantic.menu = {};
@@ -33,6 +43,20 @@ Semantic.menu.ready = function() {
     on: 'hover',
     action: 'hide'
   });
+};
+
+//dimmer init
+Semantic.dimmer = {};
+Semantic.dimmer.ready = function() {
+  $('.special.cards .image').dimmer({
+    on: 'hover'
+  });
+};
+
+Semantic.accordion = {};
+Semantic.accordion.ready = function() {
+  $('.ui.accordion')
+    .accordion();
 };
 
 module.exports = Semantic;

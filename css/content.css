@@ -1,13 +1,23 @@
-.ui.fluid.container  {
+#content {
+  background: rgba(236, 230, 230, 0.79);
+}
+
+.ui.fluid.container,
+.ui.special.cards  {
   padding-right: 10px;
   padding-left: 10px;
   margin: 15px;
 }
 
-.content {
+.ui.container.content {
   margin: 30px;
 }
 
 .ui.segment.article {
   padding: 20px;
+}
+
+.ui.accordion .content p {
+  padding-right: 10px;
+  padding-left: 20px;
 }

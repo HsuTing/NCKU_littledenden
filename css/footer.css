@@ -1,0 +1,11 @@
+.footer.segment {
+  padding: 5em 0em;
+}
+
+.footer .ui.header {
+  font-size: 0.5rem;
+}
+
+.footer .ui.list {
+  font-size: 0.2em;
+}
