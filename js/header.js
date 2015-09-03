@@ -39908,21 +39908,19 @@ var Wellcome = React.createClass({displayName: "Wellcome",
                 React.createElement("div", {className: "center"}, 
                   React.createElement(Semantic.Segment, {className: "vertical stripe"}, 
                     React.createElement("div", {className: "ui container content"}, 
-                      React.createElement(Semantic.Segment, {className: "article raised"}, 
-                        React.createElement(Semantic.Icon, {className: "remove circle outline big right floated link"}), 
+                      React.createElement(Semantic.Icon, {className: "remove circle outline big right floated link"}), 
 
-                        React.createElement(Semantic.Header, null, 
-                          this.props.data.header
-                        ), 
-                        React.createElement(Semantic.Divider, {className: "clearing"}), 
+                      React.createElement(Semantic.Header, {className: "inverted"}, 
+                        this.props.data.header
+                      ), 
+                      React.createElement(Semantic.Divider, {className: "clearing inverted"}), 
 
-                        React.createElement(Semantic.Accordion, {className: "styled fluid"}, 
-                          this.props.data.data.map(function(d) {
-                            return (
-                              React.createElement(Question, {key: d.id, data: d})
-                            );
-                          })
-                        )
+                      React.createElement(Semantic.Accordion, {className: "inverted"}, 
+                        this.props.data.data.map(function(d) {
+                          return (
+                            React.createElement(Question, {key: d.id, data: d})
+                          );
+                        })
                       )
                     )
                   )

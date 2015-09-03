@@ -104,22 +104,20 @@ var Wellcome = React.createClass({
                 <div className="center">
                   <Semantic.Segment className="vertical stripe">
                     <div className="ui container content">
-                      <Semantic.Segment className="article raised">
-                        <Semantic.Icon className="remove circle outline big right floated link"></Semantic.Icon>
+                      <Semantic.Icon className="remove circle outline big right floated link"></Semantic.Icon>
 
-                        <Semantic.Header>
-                          {this.props.data.header}
-                        </Semantic.Header>
-                        <Semantic.Divider className="clearing"></Semantic.Divider>
+                      <Semantic.Header className="inverted">
+                        {this.props.data.header}
+                      </Semantic.Header>
+                      <Semantic.Divider className="clearing inverted"></Semantic.Divider>
 
-                        <Semantic.Accordion className="styled fluid">
-                          {this.props.data.data.map(function(d) {
-                            return (
-                              <Question key={d.id} data={d}/>
-                            );
-                          })}
-                        </Semantic.Accordion>
-                      </Semantic.Segment>
+                      <Semantic.Accordion className="inverted">
+                        {this.props.data.data.map(function(d) {
+                          return (
+                            <Question key={d.id} data={d}/>
+                          );
+                        })}
+                      </Semantic.Accordion>
                     </div>
                   </Semantic.Segment>
                 </div>
