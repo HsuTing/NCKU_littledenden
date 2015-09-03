@@ -39377,9 +39377,11 @@ Semantic.dimmer.ready = function() {
   });
 
   $('.ui.dimmer.page .icon').on('click', function() {
-    $(this)
-      .closest('.ui.dimmer.page')
-        .dimmer('hide');
+    if($(this).hasClass('remove')) {
+      $(this)
+        .closest('.ui.dimmer.page')
+          .dimmer('hide');
+    }
   });
 };
 

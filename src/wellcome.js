@@ -14,6 +14,7 @@ var Wellcome = React.createClass({
       success: function(data) {
         this.setState({data: data});
         Semantic.dimmer.ready();
+        Semantic.accordion.ready();
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
@@ -48,18 +49,19 @@ var Wellcome = React.createClass({
 
         return (
           <div className="left aligned">
-            <Semantic.Header className="huge">
+            <div className="title">
+              <Semantic.Icon className="dropdown"></Semantic.Icon>
               {question}
-            </Semantic.Header>
-            <Semantic.Divider className="clearing"></Semantic.Divider>
-
-            {this.props.data.data.map(function(d) {
-              return (
-                <p key={d} className="inverted">
-                  {d}
-                </p>
-              );
-            })}
+            </div>
+            <div className="content">
+              {this.props.data.data.map(function(d) {
+                return (
+                  <p key={d}>
+                    {d}
+                  </p>
+                );
+              })}
+            </div>
           </div>
         );
       }
@@ -102,14 +104,21 @@ var Wellcome = React.createClass({
                 <div className="center">
                   <Semantic.Segment className="vertical stripe">
                     <div className="ui container content">
-                      <Semantic.Segment className="article">
-                       <Semantic.Icon className="remove circle outline big right floated link"></Semantic.Icon>
+                      <Semantic.Segment className="article raised">
+                        <Semantic.Icon className="remove circle outline big right floated link"></Semantic.Icon>
 
-                        {this.props.data.data.map(function(d) {
-                          return (
-                            <Question key={d.id} data={d}/>
-                          );
-                        })}
+                        <Semantic.Header>
+                          {this.props.data.header}
+                        </Semantic.Header>
+                        <Semantic.Divider className="clearing"></Semantic.Divider>
+
+                        <Semantic.Accordion className="styled fluid">
+                          {this.props.data.data.map(function(d) {
+                            return (
+                              <Question key={d.id} data={d}/>
+                            );
+                          })}
+                        </Semantic.Accordion>
                       </Semantic.Segment>
                     </div>
                   </Semantic.Segment>

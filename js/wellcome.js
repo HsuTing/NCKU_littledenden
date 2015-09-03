@@ -39297,9 +39297,11 @@ Semantic.dimmer.ready = function() {
   });
 
   $('.ui.dimmer.page .icon').on('click', function() {
-    $(this)
-      .closest('.ui.dimmer.page')
-        .dimmer('hide');
+    if($(this).hasClass('remove')) {
+      $(this)
+        .closest('.ui.dimmer.page')
+          .dimmer('hide');
+    }
   });
 };
 
@@ -39328,6 +39330,7 @@ var Wellcome = React.createClass({displayName: "Wellcome",
       success: function(data) {
         this.setState({data: data});
         Semantic.dimmer.ready();
+        Semantic.accordion.ready();
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
@@ -39362,18 +39365,19 @@ var Wellcome = React.createClass({displayName: "Wellcome",
 
         return (
           React.createElement("div", {className: "left aligned"}, 
-            React.createElement(Semantic.Header, {className: "huge"}, 
+            React.createElement("div", {className: "title"}, 
+              React.createElement(Semantic.Icon, {className: "dropdown"}), 
               question
             ), 
-            React.createElement(Semantic.Divider, {className: "clearing"}), 
-
-            this.props.data.data.map(function(d) {
-              return (
-                React.createElement("p", {key: d, className: "inverted"}, 
-                  d
-                )
-              );
-            })
+            React.createElement("div", {className: "content"}, 
+              this.props.data.data.map(function(d) {
+                return (
+                  React.createElement("p", {key: d}, 
+                    d
+                  )
+                );
+              })
+            )
           )
         );
       }
@@ -39416,14 +39420,21 @@ var Wellcome = React.createClass({displayName: "Wellcome",
                 React.createElement("div", {className: "center"}, 
                   React.createElement(Semantic.Segment, {className: "vertical stripe"}, 
                     React.createElement("div", {className: "ui container content"}, 
-                      React.createElement(Semantic.Segment, {className: "article"}, 
-                       React.createElement(Semantic.Icon, {className: "remove circle outline big right floated link"}), 
+                      React.createElement(Semantic.Segment, {className: "article raised"}, 
+                        React.createElement(Semantic.Icon, {className: "remove circle outline big right floated link"}), 
 
-                        this.props.data.data.map(function(d) {
-                          return (
-                            React.createElement(Question, {key: d.id, data: d})
-                          );
-                        })
+                        React.createElement(Semantic.Header, null, 
+                          this.props.data.header
+                        ), 
+                        React.createElement(Semantic.Divider, {className: "clearing"}), 
+
+                        React.createElement(Semantic.Accordion, {className: "styled fluid"}, 
+                          this.props.data.data.map(function(d) {
+                            return (
+                              React.createElement(Question, {key: d.id, data: d})
+                            );
+                          })
+                        )
                       )
                     )
                   )
