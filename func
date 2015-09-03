@@ -15,16 +15,18 @@ if [ $# = 1 ]; then
     cd ${path}
     npm install -i
 
-#transform js from jsx and browerify js file
-  elif [ $1 = trans ]; then
+#transform js from jsx
+  elif [ $1 = jsx ]; then
     echo
     echo "jsx"
-    echo "src->dist"
     ${path}/node_modules/.bin/jsx src/ dist/
+    echo "done"
+    echo
 
+#browerify js file
+  elif [ $1 = bro ]; then
     echo
     echo "browserify"
-    echo "dist->js"
     cd ${path}
     for item in ${js[*]}; do
       node_modules/.bin/browserify ${item}.js > ../js/${item}.js
@@ -39,6 +41,7 @@ if [ $# = 1 ]; then
     echo "minifier"
     cd js
     for item in ${minjs[*]}; do
+      echo "${red}${item}.js${reset}"
       ../${path}/node_modules/.bin/minify ${item}.js --output ${item}.min.js
     done
     echo "done"
