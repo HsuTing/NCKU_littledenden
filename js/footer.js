@@ -39363,8 +39363,17 @@ Semantic.dimmer.ready = function() {
     on: 'hover'
   });
 
-  $('.special.cards .image .button').dimmer({
-    on: 'click'
+  $('.special.cards .image .button.showpage').on('click', function() {
+    $(this)
+      .closest('.ui.card')
+      .find('.ui.dimmer.page')
+        .dimmer('show');
+  });
+
+  $('.ui.dimmer.page .icon').on('click', function() {
+    $(this)
+      .closest('.ui.dimmer.page')
+        .dimmer('hide');
   });
 };
 

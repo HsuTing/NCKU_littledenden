@@ -40,7 +40,7 @@ var Content = React.createClass({
       render: function() {
         return (
           <div className="ui container content">
-            <Semantic.Segment className="article">
+            <Semantic.Segment className="article raised">
               <Semantic.Header className="huge">
                 {this.props.data.header}
               </Semantic.Header>

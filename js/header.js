@@ -202,7 +202,7 @@ var Content = React.createClass({displayName: "Content",
     return (
       React.createElement(Semantic.Segment, {className: "vertical stripe"}, 
         React.createElement("div", {className: "ui container content"}, 
-          React.createElement(Semantic.Segment, {className: "article"}, 
+          React.createElement(Semantic.Segment, {className: "article raised"}, 
             React.createElement(Semantic.Header, {className: "huge"}, 
               this.state.data.info.text
             ), 
@@ -254,7 +254,7 @@ var Content = React.createClass({displayName: "Content",
         ), 
 
         React.createElement("div", {className: "ui container content"}, 
-          React.createElement(Semantic.Segment, {className: "article"}, 
+          React.createElement(Semantic.Segment, {className: "article raised"}, 
             React.createElement(Semantic.Header, {className: "huge"}, 
               this.state.data.speaker.text
             ), 
@@ -39601,7 +39601,7 @@ var Content = React.createClass({displayName: "Content",
     return (
       React.createElement(Semantic.Segment, {className: "vertical stripe"}, 
         React.createElement("div", {className: "ui container content"}, 
-          React.createElement(Semantic.Segment, {className: "article"}, 
+          React.createElement(Semantic.Segment, {className: "article raised"}, 
             React.createElement(Semantic.Header, {className: "huge"}, 
               this.state.data.info.text
             ), 
@@ -39619,7 +39619,7 @@ var Content = React.createClass({displayName: "Content",
         ), 
 
         React.createElement("div", {className: "ui container content"}, 
-          React.createElement(Semantic.Segment, {className: "article"}, 
+          React.createElement(Semantic.Segment, {className: "article raised"}, 
             React.createElement(Semantic.Header, {className: "huge"}, 
               this.state.data.QA.text
             ), 
@@ -39685,7 +39685,7 @@ var Content = React.createClass({displayName: "Content",
       render: function() {
         return (
           React.createElement("div", {className: "ui container content"}, 
-            React.createElement(Semantic.Segment, {className: "article"}, 
+            React.createElement(Semantic.Segment, {className: "article raised"}, 
               React.createElement(Semantic.Header, {className: "huge"}, 
                 this.props.data.header
               ), 
@@ -39777,8 +39777,17 @@ Semantic.dimmer.ready = function() {
     on: 'hover'
   });
 
-  $('.special.cards .image .button').dimmer({
-    on: 'click'
+  $('.special.cards .image .button.showpage').on('click', function() {
+    $(this)
+      .closest('.ui.card')
+      .find('.ui.dimmer.page')
+        .dimmer('show');
+  });
+
+  $('.ui.dimmer.page .icon').on('click', function() {
+    $(this)
+      .closest('.ui.dimmer.page')
+        .dimmer('hide');
   });
 };
 
@@ -39817,38 +39826,38 @@ var Wellcome = React.createClass({displayName: "Wellcome",
     var Question = React.createClass({displayName: "Question",
       render: function() {
         var question = "";
-        switch(this.props.name) {
-          case "1":
-            question = "Q1";
+        switch(this.props.data.id) {
+          case "A1":
+            question = "簡單介紹一下你的系吧?";
           break;
 
-          case "2":
-            question = "Q2";
+          case "A2":
+            question = "系上有哪些課程呢？";
           break;
 
-          case "3":
-            question = "Q3";
+          case "A3":
+            question = "系上有哪些活動呢？";
           break;
 
-          case "4":
-            question = "Q4";
+          case "A4":
+            question = "系上有的系隊有哪些呢？";
           break;
 
-          case "5":
-            question = "Q5";
+          case "A5":
+            question = "想跟學弟妹們說些什麼呢？";
           break;
         }
 
         return (
-          React.createElement(Semantic.Segment, {className: "article"}, 
+          React.createElement("div", {className: "left aligned"}, 
             React.createElement(Semantic.Header, {className: "huge"}, 
               question
             ), 
             React.createElement(Semantic.Divider, {className: "clearing"}), 
 
-            this.props.data.map(function(d) {
+            this.props.data.data.map(function(d) {
               return (
-                React.createElement("p", null, 
+                React.createElement("p", {key: d, className: "inverted"}, 
                   d
                 )
               );
@@ -39860,8 +39869,7 @@ var Wellcome = React.createClass({displayName: "Wellcome",
 
     var Series = React.createClass({displayName: "Series",
       render: function() {
-        var url = "img/" + this.props.data.header + "照片.jpg";
-        var count = 0;
+        var url = "img/series/" + this.props.data.header + "照片.jpg";
 
         return (
           React.createElement(Semantic.Card, null, 
@@ -39869,28 +39877,15 @@ var Wellcome = React.createClass({displayName: "Wellcome",
               React.createElement(Semantic.Dimmer, null, 
                 React.createElement("div", {className: "content"}, 
                   React.createElement("div", {className: "center"}, 
-                    React.createElement(Semantic.Button, {className: "inverted"}, 
-                      "瞭解更多", 
-
-                      React.createElement(Semantic.Dimmer, {className: "page"}, 
-                        React.createElement("div", {className: "content"}, 
-                          React.createElement("div", {className: "center"}, 
-                            this.props.data.data.map(function(d) {
-                              count = count * 1 + 1;
-                              return (
-                                React.createElement(Question, {date: d, key: count, name: count})
-                              );
-                            })
-                          )
-                        )
-                      )
-
+                    React.createElement(Semantic.Button, {className: "inverted showpage"}, 
+                      "瞭解更多"
                     )
                   )
                 )
               ), 
               React.createElement(Semantic.Image, {src: url, alt: "無照片"})
             ), 
+
             React.createElement("div", {className: "content"}, 
               React.createElement(Semantic.Header, null, 
                 this.props.data.header
@@ -39902,7 +39897,28 @@ var Wellcome = React.createClass({displayName: "Wellcome",
                   );
                 })
               )
+            ), 
+
+            React.createElement(Semantic.Dimmer, {className: "page"}, 
+              React.createElement("div", {className: "content"}, 
+                React.createElement("div", {className: "center"}, 
+                  React.createElement(Semantic.Segment, {className: "vertical stripe"}, 
+                    React.createElement("div", {className: "ui container content"}, 
+                      React.createElement(Semantic.Segment, {className: "article"}, 
+                       React.createElement(Semantic.Icon, {className: "remove circle outline big right floated link"}), 
+
+                        this.props.data.data.map(function(d) {
+                          return (
+                            React.createElement(Question, {key: d.id, data: d})
+                          );
+                        })
+                      )
+                    )
+                  )
+                )
+              )
             )
+
           )
         );
       }
@@ -39913,7 +39929,7 @@ var Wellcome = React.createClass({displayName: "Wellcome",
         this.state.data.map(function(d) {
           return (
             React.createElement("div", {className: "ui container content", key: d.id}, 
-              React.createElement(Semantic.Segment, {className: "article"}, 
+              React.createElement(Semantic.Segment, {className: "article raised"}, 
                 React.createElement(Semantic.Header, {className: "huge"}, 
                   d.header
                 ), 

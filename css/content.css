@@ -1,5 +1,5 @@
 #content {
-  background: rgba(236, 230, 230, 0.79);
+  background: rgb(247, 243, 243);
 }
 
 .ui.fluid.container,
@@ -25,4 +25,16 @@
 .ui.table .cell {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.ui.dimmer.page p {
+  color: black;
+}
+
+.ui.dimmer.page .left.aligned {
+  margin: 15px;
+}
+
+.ui.dimmer.page .icon {
+  color: black;
 }

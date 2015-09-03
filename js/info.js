@@ -63,7 +63,7 @@ var Content = React.createClass({displayName: "Content",
     return (
       React.createElement(Semantic.Segment, {className: "vertical stripe"}, 
         React.createElement("div", {className: "ui container content"}, 
-          React.createElement(Semantic.Segment, {className: "article"}, 
+          React.createElement(Semantic.Segment, {className: "article raised"}, 
             React.createElement(Semantic.Header, {className: "huge"}, 
               this.state.data.info.text
             ), 
@@ -115,7 +115,7 @@ var Content = React.createClass({displayName: "Content",
         ), 
 
         React.createElement("div", {className: "ui container content"}, 
-          React.createElement(Semantic.Segment, {className: "article"}, 
+          React.createElement(Semantic.Segment, {className: "article raised"}, 
             React.createElement(Semantic.Header, {className: "huge"}, 
               this.state.data.speaker.text
             ), 
@@ -39429,8 +39429,17 @@ Semantic.dimmer.ready = function() {
     on: 'hover'
   });
 
-  $('.special.cards .image .button').dimmer({
-    on: 'click'
+  $('.special.cards .image .button.showpage').on('click', function() {
+    $(this)
+      .closest('.ui.card')
+      .find('.ui.dimmer.page')
+        .dimmer('show');
+  });
+
+  $('.ui.dimmer.page .icon').on('click', function() {
+    $(this)
+      .closest('.ui.dimmer.page')
+        .dimmer('hide');
   });
 };
 

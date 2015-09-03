@@ -62,7 +62,7 @@ var Content = React.createClass({
     return (
       <Semantic.Segment className="vertical stripe">
         <div className="ui container content">
-          <Semantic.Segment className="article">
+          <Semantic.Segment className="article raised">
             <Semantic.Header className="huge">
               {this.state.data.info.text}
             </Semantic.Header>
@@ -114,7 +114,7 @@ var Content = React.createClass({
         </div>
 
         <div className="ui container content">
-          <Semantic.Segment className="article">
+          <Semantic.Segment className="article raised">
             <Semantic.Header className="huge">
               {this.state.data.speaker.text}
             </Semantic.Header>

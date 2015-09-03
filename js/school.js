@@ -39277,7 +39277,7 @@ var Content = React.createClass({displayName: "Content",
       render: function() {
         return (
           React.createElement("div", {className: "ui container content"}, 
-            React.createElement(Semantic.Segment, {className: "article"}, 
+            React.createElement(Semantic.Segment, {className: "article raised"}, 
               React.createElement(Semantic.Header, {className: "huge"}, 
                 this.props.data.header
               ), 
@@ -39369,8 +39369,17 @@ Semantic.dimmer.ready = function() {
     on: 'hover'
   });
 
-  $('.special.cards .image .button').dimmer({
-    on: 'click'
+  $('.special.cards .image .button.showpage').on('click', function() {
+    $(this)
+      .closest('.ui.card')
+      .find('.ui.dimmer.page')
+        .dimmer('show');
+  });
+
+  $('.ui.dimmer.page .icon').on('click', function() {
+    $(this)
+      .closest('.ui.dimmer.page')
+        .dimmer('hide');
   });
 };
 

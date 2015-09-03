@@ -24,51 +24,50 @@ var Wellcome = React.createClass({
     var Question = React.createClass({
       render: function() {
         var question = "";
-        switch(this.props.name) {
-          case "1":
-            question = "Q1";
+        switch(this.props.data.id) {
+          case "A1":
+            question = "簡單介紹一下你的系吧?";
           break;
 
-          case "2":
-            question = "Q2";
+          case "A2":
+            question = "系上有哪些課程呢？";
           break;
 
-          case "3":
-            question = "Q3";
+          case "A3":
+            question = "系上有哪些活動呢？";
           break;
 
-          case "4":
-            question = "Q4";
+          case "A4":
+            question = "系上有的系隊有哪些呢？";
           break;
 
-          case "5":
-            question = "Q5";
+          case "A5":
+            question = "想跟學弟妹們說些什麼呢？";
           break;
         }
 
         return (
-          <Semantic.Segment className="article">
+          <div className="left aligned">
             <Semantic.Header className="huge">
               {question}
             </Semantic.Header>
             <Semantic.Divider className="clearing"></Semantic.Divider>
 
-            {this.props.data.map(function(d) {
+            {this.props.data.data.map(function(d) {
               return (
-                <p>
+                <p key={d} className="inverted">
                   {d}
                 </p>
               );
             })}
-          </Semantic.Segment>
+          </div>
         );
       }
     });
 
     var Series = React.createClass({
       render: function() {
-        var url = "img/" + this.props.data.header + "照片.jpg";
-        var count = 0;
+        var url = "img/series/" + this.props.data.header + "照片.jpg";
 
         return (
           <Semantic.Card>
@@ -76,28 +75,15 @@ var Wellcome = React.createClass({
               <Semantic.Dimmer>
                 <div className="content">
                   <div className="center">
-                    <Semantic.Button className="inverted">
+                    <Semantic.Button className="inverted showpage">
                       瞭解更多
-
-                      <Semantic.Dimmer className="page">
-                        <div className="content">
-                          <div className="center">
-                            {this.props.data.data.map(function(d) {
-                              count = count * 1 + 1;
-                              return (
-                                <Question date={d} key={count} name={count}/>
-                              );
-                            })}
-                          </div>
-                        </div>                        
-                      </Semantic.Dimmer>
-
                     </Semantic.Button>
                   </div>
                 </div>
               </Semantic.Dimmer>
               <Semantic.Image src={url} alt="無照片"></Semantic.Image>
             </div>
+
             <div className="content">
               <Semantic.Header>
                 {this.props.data.header}
@@ -110,6 +96,27 @@ var Wellcome = React.createClass({
                 })}
               </div>
             </div>
+
+            <Semantic.Dimmer className="page">
+              <div className="content">
+                <div className="center">
+                  <Semantic.Segment className="vertical stripe">
+                    <div className="ui container content">
+                      <Semantic.Segment className="article">
+                       <Semantic.Icon className="remove circle outline big right floated link"></Semantic.Icon>
+
+                        {this.props.data.data.map(function(d) {
+                          return (
+                            <Question key={d.id} data={d}/>
+                          );
+                        })}
+                      </Semantic.Segment>
+                    </div>
+                  </Semantic.Segment>
+                </div>
+              </div>
+            </Semantic.Dimmer>
+
           </Semantic.Card>
         );
       }
@@ -120,7 +127,7 @@ var Wellcome = React.createClass({
         {this.state.data.map(function(d) {
           return (
             <div className="ui container content" key={d.id}>
-              <Semantic.Segment className="article">
+              <Semantic.Segment className="article raised">
                 <Semantic.Header className="huge">
                   {d.header}
                 </Semantic.Header>
