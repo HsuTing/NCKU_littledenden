@@ -24,8 +24,6 @@ var Content = React.createClass({displayName: "Content",
       cache: false,
       success: function(data) {
         this.setState({data: data});
-        Semantic.dimmer.ready();
-        Semantic.accordion.ready();
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
@@ -51,6 +49,17 @@ var Content = React.createClass({displayName: "Content",
       }
     });
 
+    var Cell = React.createClass({displayName: "Cell",
+      render: function() {
+        return (
+          React.createElement("div", {className: "cell"}, 
+            this.props.text, 
+            React.createElement("br", null)
+          )
+        );
+      }
+    })
+
     return (
       React.createElement(Semantic.Segment, {className: "vertical stripe"}, 
         React.createElement("div", {className: "ui container content"}, 
@@ -62,7 +71,7 @@ var Content = React.createClass({displayName: "Content",
 
             React.createElement(Semantic.Table, {className: "celled"}, 
               React.createElement("thead", null, 
-                React.createElement("tr", null, 
+                React.createElement("tr", {className: "center aligned"}, 
                   this.state.data.info.title.map(function(d) {
                     return (
                       React.createElement("th", {key: d}, d)
@@ -73,10 +82,29 @@ var Content = React.createClass({displayName: "Content",
               React.createElement("tbody", null, 
                 this.state.data.info.data.map(function(d) {
                   return (
-                    React.createElement("tr", {key: d.id}, 
-                      React.createElement("td", {key: d.one}, d.one), 
-                      React.createElement("td", {key: d.two}, d.two), 
-                      React.createElement("td", {key: d.three}, d.three)
+                    React.createElement("tr", {className: "center aligned", key: d.id}, 
+                      React.createElement("td", null, d.time), 
+                      React.createElement("td", {className: "center aligned"}, 
+                        d.one.map(function(d) {
+                          return (
+                            React.createElement(Cell, {text: d, key: d})
+                          );
+                        })
+                      ), 
+                      React.createElement("td", {className: "center aligned"}, 
+                        d.two.map(function(d) {
+                          return (
+                            React.createElement(Cell, {text: d, key: d})
+                          );
+                        })
+                      ), 
+                      React.createElement("td", {className: "center aligned"}, 
+                        d.three.map(function(d) {
+                          return (
+                            React.createElement(Cell, {text: d, key: d})
+                          );
+                        })
+                      )
                     )
                   );
                 })
@@ -39399,6 +39427,10 @@ Semantic.dimmer = {};
 Semantic.dimmer.ready = function() {
   $('.special.cards .image').dimmer({
     on: 'hover'
+  });
+
+  $('.special.cards .image .button').dimmer({
+    on: 'click'
   });
 };
 

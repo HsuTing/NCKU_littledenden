@@ -1,7 +1,10 @@
 var React = require('react');
 var Header = require('./header.js');
+var Home = require('./home.js');
+var Img = require('./img.js');
 var School = require('./school.js');
 var Notice = require('./notice.js');
+var Wellcome = require('./wellcome.js');
 var Info = require('./info.js');
 var Footer = require('./footer.js');
 
@@ -12,8 +15,8 @@ var Footer = require('./footer.js');
   );
 
   React.render(
-    <Info url='arc/info.json'/>,
-    document.getElementById('content')
+    <Home url='img/home.jpg'/>,
+    document.getElementById('img')
   );
 
   React.render(

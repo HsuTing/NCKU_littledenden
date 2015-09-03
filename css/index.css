@@ -1,0 +1,12 @@
+@font-face {
+  font-family: SentyGoldenBell;
+  src: url('../font/SentyGoldenBell.otf');
+}
+
+.menubutton {
+  font-family: SentyGoldenBell;
+}
+
+body.pushable>.pusher {
+  background-color: #1b1c1d;
+}

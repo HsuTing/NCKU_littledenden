@@ -39285,6 +39285,10 @@ Semantic.dimmer.ready = function() {
   $('.special.cards .image').dimmer({
     on: 'hover'
   });
+
+  $('.special.cards .image .button').dimmer({
+    on: 'click'
+  });
 };
 
 Semantic.accordion = {};

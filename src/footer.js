@@ -13,7 +13,6 @@ var Footer = React.createClass({
       cache: false,
       success: function(data) {
         this.setState({data: data});
-        Semantic.menu.ready();
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
@@ -24,7 +23,7 @@ var Footer = React.createClass({
     var List = React.createClass({
       render: function () {
         return (
-          <div className="two wide column">
+          <div className="ui container">
             <Semantic.Header className="inverted">
               {this.props.data.text}
             </Semantic.Header>
@@ -50,17 +49,19 @@ var Footer = React.createClass({
       <Semantic.Segment className="vertical inverted footer">
 
         <div className="ui container">
-          {this.state.data.map(function(d) {
-            return (
-              <Semantic.Grid className="stackable inverted divided equal height stackable" key={d.id}>
-                {d.data.map(function(d) {
-                  return (
-                    <List key={d.id} data={d}/>
-                  );
-                })}
-              </Semantic.Grid>
-            );
-          })}
+          <Semantic.Grid className="stackable inverted divided equal height stackable">
+            {this.state.data.map(function(d) {
+              return (
+                <div className="two wide column" key={d.id}>
+                  {d.data.map(function(dd) {
+                    return (
+                      <List key={dd.id} data={dd}/>
+                    );
+                  })}
+                </div>
+              );
+            })}
+          </Semantic.Grid>
         </div>
 
       </Semantic.Segment>

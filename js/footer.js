@@ -14,7 +14,6 @@ var Footer = React.createClass({displayName: "Footer",
       cache: false,
       success: function(data) {
         this.setState({data: data});
-        Semantic.menu.ready();
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
@@ -25,7 +24,7 @@ var Footer = React.createClass({displayName: "Footer",
     var List = React.createClass({displayName: "List",
       render: function () {
         return (
-          React.createElement("div", {className: "two wide column"}, 
+          React.createElement("div", {className: "ui container"}, 
             React.createElement(Semantic.Header, {className: "inverted"}, 
               this.props.data.text
             ), 
@@ -51,17 +50,19 @@ var Footer = React.createClass({displayName: "Footer",
       React.createElement(Semantic.Segment, {className: "vertical inverted footer"}, 
 
         React.createElement("div", {className: "ui container"}, 
-          this.state.data.map(function(d) {
-            return (
-              React.createElement(Semantic.Grid, {className: "stackable inverted divided equal height stackable", key: d.id}, 
-                d.data.map(function(d) {
-                  return (
-                    React.createElement(List, {key: d.id, data: d})
-                  );
-                })
-              )
-            );
-          })
+          React.createElement(Semantic.Grid, {className: "stackable inverted divided equal height stackable"}, 
+            this.state.data.map(function(d) {
+              return (
+                React.createElement("div", {className: "two wide column", key: d.id}, 
+                  d.data.map(function(dd) {
+                    return (
+                      React.createElement(List, {key: dd.id, data: dd})
+                    );
+                  })
+                )
+              );
+            })
+          )
         )
 
       )
@@ -39360,6 +39361,10 @@ Semantic.dimmer = {};
 Semantic.dimmer.ready = function() {
   $('.special.cards .image').dimmer({
     on: 'hover'
+  });
+
+  $('.special.cards .image .button').dimmer({
+    on: 'click'
   });
 };
 

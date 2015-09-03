@@ -2,26 +2,26 @@
   {
     "id": "home",
     "text": "首頁",
-    "class": "active"
+    "class": "menubutton active"
   },
   {
     "id": "info",
     "text": "營期資訊",
-    "class": ""  
+    "class": "menubutton"
   },
   {
     "id": "wellcome",
     "text": "歡迎新生",
-    "class": ""
+    "class": "menubutton"
   },
   {
     "id": "notice",
     "text": "新生須知",
-    "class": ""
+    "class": "menubutton"
   },
   {
     "id": "school",
-    "text": "學校資源",
-    "class": ""
+    "text": "學校資訊／資源",
+    "class": "menubutton"
   }
 ]

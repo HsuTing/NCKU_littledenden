@@ -23,8 +23,6 @@ var Content = React.createClass({
       cache: false,
       success: function(data) {
         this.setState({data: data});
-        Semantic.dimmer.ready();
-        Semantic.accordion.ready();
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
@@ -50,6 +48,17 @@ var Content = React.createClass({
       }
     });
 
+    var Cell = React.createClass({
+      render: function() {
+        return (
+          <div className="cell">
+            {this.props.text}
+            <br/>
+          </div>
+        );
+      }
+    })
+
     return (
       <Semantic.Segment className="vertical stripe">
         <div className="ui container content">
@@ -61,7 +70,7 @@ var Content = React.createClass({
 
             <Semantic.Table className="celled">
               <thead>
-                <tr>
+                <tr className="center aligned">
                   {this.state.data.info.title.map(function(d) {
                     return (
                       <th key={d}>{d}</th>
@@ -72,10 +81,29 @@ var Content = React.createClass({
               <tbody>
                 {this.state.data.info.data.map(function(d) {
                   return (
-                    <tr key={d.id}>
-                      <td key={d.one}>{d.one}</td>
-                      <td key={d.two}>{d.two}</td>
-                      <td key={d.three}>{d.three}</td>
+                    <tr className="center aligned" key={d.id}>
+                      <td>{d.time}</td>
+                      <td className="center aligned">
+                        {d.one.map(function(d) {
+                          return (
+                            <Cell text={d} key={d}/>
+                          );
+                        })}
+                      </td>
+                      <td className="center aligned">
+                        {d.two.map(function(d) {
+                          return (
+                            <Cell text={d} key={d}/>
+                          );
+                        })}
+                      </td>
+                      <td className="center aligned">
+                        {d.three.map(function(d) {
+                          return (
+                            <Cell text={d} key={d}/>
+                          );
+                        })}
+                      </td>
                     </tr>
                   );
                 })}
