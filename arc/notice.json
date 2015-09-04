@@ -30,56 +30,29 @@
      "data": [
        {
          "id": "0",
-          "Q": "Q0",
+          "Q": "Question",
           "class": "title",
           "dataclass": "content",
           "data": [
-            {
-              "id": "0",
-              "text": "t0",
-              "class": ""
-            },
-            {
-              "id": "1",
-              "text": "t1",
-              "class": ""
-            }
+            "answer"
           ]
        },
        {
          "id": "1",
-          "Q": "Q1",
+          "Q": "Question",
           "class": "title",
           "dataclass": "content",
           "data": [
-            {
-              "id": "0",
-              "text": "t0",
-              "class": ""
-            },
-            {
-              "id": "1",
-              "text": "t1",
-              "class": ""
-            }
+            "answer"
           ]
        },
        {
          "id": "2",
-          "Q": "Q2",
+          "Q": "Question",
           "class": "title",
           "dataclass": "content",
           "data": [
-            {
-              "id": "0",
-              "text": "t0",
-              "class": ""
-            },
-            {
-              "id": "1",
-              "text": "t1",
-              "class": ""
-            }
+            "answer"
           ]
        }
      ]

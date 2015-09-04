@@ -39691,7 +39691,7 @@ var Content = React.createClass({displayName: "Content",
              React.createElement("div", {className: this.props.data.dataclass}, 
                this.props.data.data.map(function(d) {
                  return (
-                   React.createElement("p", {key: d.id}, d.text)
+                   React.createElement("p", {key: d}, d)
                  );
                })
              )

@@ -73,7 +73,7 @@ var Content = React.createClass({
              <div className={this.props.data.dataclass}>
                {this.props.data.data.map(function(d) {
                  return (
-                   <p key={d.id}>{d.text}</p>
+                   <p key={d}>{d}</p>
                  );
                })}
              </div>
