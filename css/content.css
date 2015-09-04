@@ -26,3 +26,8 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.ui.dimmer .title span {
+  color: darkgrey;
+  font-weight: bold;
+}
