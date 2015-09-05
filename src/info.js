@@ -32,9 +32,10 @@ var Content = React.createClass({
   render: function () {
     var Speaker = React.createClass({
       render: function() {
+        var url = 'img/speaker/' + this.props.data.header + '.jpg';
         return (
           <Semantic.Card>
-            <Semantic.Image src={this.props.data.img}></Semantic.Image>
+            <Semantic.Image src={url}></Semantic.Image>
             <div className="content">
               <Semantic.Header>
                 {this.props.data.header}

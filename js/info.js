@@ -33,9 +33,10 @@ var Content = React.createClass({displayName: "Content",
   render: function () {
     var Speaker = React.createClass({displayName: "Speaker",
       render: function() {
+        var url = 'img/speaker/' + this.props.data.header + '.jpg';
         return (
           React.createElement(Semantic.Card, null, 
-            React.createElement(Semantic.Image, {src: this.props.data.img}), 
+            React.createElement(Semantic.Image, {src: url}), 
             React.createElement("div", {className: "content"}, 
               React.createElement(Semantic.Header, null, 
                 this.props.data.header
