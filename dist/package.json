@@ -12,7 +12,9 @@
     "react-tools": "~0.13.3",
     "semantic-ui-dropdown": "~2.0.8",
     "bower": "~1.5.2",
-    "semantic-ui-transition": "~2.0.8"
+    "semantic-ui-transition": "~2.0.8",
+    "semantic-ui-dimmer": "~2.0.8",
+    "semantic-ui-accordion": "~2.0.8"
   },
   "devDependencies": {},
   "scripts": {

@@ -33,9 +33,11 @@ var Header = React.createClass({displayName: "Header",
     switch(e) {
       case "home":
         React.render(
-          React.createElement(Home, null),
+          React.createElement(Home, {url: "img/home.svg"}),
           document.getElementById('img')
         );
+        $('#content').hide();
+        $('#content').empty();
       break;
 
       default:
@@ -106,7 +108,7 @@ var React = require('react');
 var Home = React.createClass({displayName: "Home",
   render: function () {
     return (
-      React.createElement("embed", {src: "img/home.svg", width: "100%", height: "100%", type: "image/svg+xml", pluginspage: "http://www.adobe.com/svg/viewer/install/"})
+      React.createElement("embed", {src: this.props.url, width: "100%", height: "100%", type: "image/svg+xml", pluginspage: "http://www.adobe.com/svg/viewer/install/"})
     );
   }
 });

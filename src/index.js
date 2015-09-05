@@ -15,7 +15,7 @@ var Footer = require('./footer.js');
   );
 
   React.render(
-    <Home url='img/home.jpg'/>,
+    <Home url='img/home.svg'/>,
     document.getElementById('img')
   );
 

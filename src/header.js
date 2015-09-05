@@ -32,9 +32,11 @@ var Header = React.createClass({
     switch(e) {
       case "home":
         React.render(
-          <Home/>,
+          <Home url='img/home.svg'/>,
           document.getElementById('img')
         );
+        $('#content').hide();
+        $('#content').empty();
       break;
 
       default:

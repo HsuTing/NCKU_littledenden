@@ -5,7 +5,7 @@ var React = require('react');
 var Home = React.createClass({displayName: "Home",
   render: function () {
     return (
-      React.createElement("embed", {src: "img/home.svg", width: "100%", height: "100%", type: "image/svg+xml", pluginspage: "http://www.adobe.com/svg/viewer/install/"})
+      React.createElement("embed", {src: this.props.url, width: "100%", height: "100%", type: "image/svg+xml", pluginspage: "http://www.adobe.com/svg/viewer/install/"})
     );
   }
 });
