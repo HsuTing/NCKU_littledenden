@@ -30,9 +30,6 @@ var Header = React.createClass({displayName: "Header",
   onClick: function(e) {
     var url = 'arc/' + e + '.json';
 
-    $("#content").hide();
-    $("#content").empty();
-
     switch(e) {
       case "home":
         React.render(
@@ -78,8 +75,6 @@ var Header = React.createClass({displayName: "Header",
         );
       break;
     }
-
-    $("#content").show();
   },
   render: function () {
     return (
@@ -144,6 +139,8 @@ var Semantic = require('./semantic.js');
 
 var Content = React.createClass({displayName: "Content",
   getInitialState: function() {
+    $('#content').hide();
+    $('#content').empty();
     return {data: {
        info: {
          text: "",
@@ -163,6 +160,7 @@ var Content = React.createClass({displayName: "Content",
       cache: false,
       success: function(data) {
         this.setState({data: data});
+        $('#content').show();
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
@@ -39521,6 +39519,8 @@ var Semantic = require('./semantic.js');
 
 var Content = React.createClass({displayName: "Content",
   getInitialState: function() {
+    $('#content').hide();
+    $('#content').empty();
     return {data: {
        info: {
          text: "",
@@ -39541,6 +39541,7 @@ var Content = React.createClass({displayName: "Content",
         this.setState({data: data});
         Semantic.dimmer.ready();
         Semantic.accordion.ready();
+        $('#content').show();
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
@@ -39650,6 +39651,8 @@ var Semantic = require('./semantic.js');
 
 var Content = React.createClass({displayName: "Content",
   getInitialState: function() {
+    $('#content').hide();
+    $('#content').empty();
     return {data: []};
   },
   componentDidMount: function() {
@@ -39659,6 +39662,7 @@ var Content = React.createClass({displayName: "Content",
       cache: false,
       success: function(data) {
         this.setState({data: data});
+        $('#content').show();
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
@@ -39809,6 +39813,8 @@ var Semantic = require('./semantic.js');
 
 var Wellcome = React.createClass({displayName: "Wellcome",
   getInitialState: function() {
+    $('#content').hide();
+    $('#content').empty();
     return {data: [] };
   },
   componentDidMount: function() {
@@ -39820,6 +39826,7 @@ var Wellcome = React.createClass({displayName: "Wellcome",
         this.setState({data: data});
         Semantic.dimmer.ready();
         Semantic.accordion.ready();
+        $('#content').show();
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());

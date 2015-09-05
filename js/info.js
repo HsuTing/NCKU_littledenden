@@ -5,6 +5,8 @@ var Semantic = require('./semantic.js');
 
 var Content = React.createClass({displayName: "Content",
   getInitialState: function() {
+    $('#content').hide();
+    $('#content').empty();
     return {data: {
        info: {
          text: "",
@@ -24,6 +26,7 @@ var Content = React.createClass({displayName: "Content",
       cache: false,
       success: function(data) {
         this.setState({data: data});
+        $('#content').show();
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());

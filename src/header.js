@@ -29,9 +29,6 @@ var Header = React.createClass({
   onClick: function(e) {
     var url = 'arc/' + e + '.json';
 
-    $("#content").hide();
-    $("#content").empty();
-
     switch(e) {
       case "home":
         React.render(
@@ -77,8 +74,6 @@ var Header = React.createClass({
         );
       break;
     }
-
-    $("#content").show();
   },
   render: function () {
     return (

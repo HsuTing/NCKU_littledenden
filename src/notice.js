@@ -4,6 +4,8 @@ var Semantic = require('./semantic.js');
 
 var Content = React.createClass({
   getInitialState: function() {
+    $('#content').hide();
+    $('#content').empty();
     return {data: {
        info: {
          text: "",
@@ -24,6 +26,7 @@ var Content = React.createClass({
         this.setState({data: data});
         Semantic.dimmer.ready();
         Semantic.accordion.ready();
+        $('#content').show();
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());

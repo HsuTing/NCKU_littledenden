@@ -39320,6 +39320,8 @@ var Semantic = require('./semantic.js');
 
 var Wellcome = React.createClass({displayName: "Wellcome",
   getInitialState: function() {
+    $('#content').hide();
+    $('#content').empty();
     return {data: [] };
   },
   componentDidMount: function() {
@@ -39331,6 +39333,7 @@ var Wellcome = React.createClass({displayName: "Wellcome",
         this.setState({data: data});
         Semantic.dimmer.ready();
         Semantic.accordion.ready();
+        $('#content').show();
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
