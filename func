@@ -1,7 +1,7 @@
 #!/bin/bash
 path=dist
 
-js=(semantic school notice wellcome info home img header footer index)
+js=(semantic school notice wellcome info img header footer home index)
 #js=(header index)
 minjs=(index)
 
@@ -29,7 +29,7 @@ if [ $# = 1 ]; then
     echo "browserify"
     cd ${path}
     for item in ${js[*]}; do
-      node_modules/.bin/browserify ${item}.js > ../js/${item}.js
+      node_modules/.bin/browserify ${item}.js > ../js/${item}.temp.js
       echo "${red}${item}.js is complate.${reset}"
     done
     echo "done"
@@ -42,7 +42,7 @@ if [ $# = 1 ]; then
     cd js
     for item in ${minjs[*]}; do
       echo "${red}${item}.js${reset}"
-      ../${path}/node_modules/.bin/minify ${item}.js --output ${item}.min.js
+      ../${path}/node_modules/.bin/minify ${item}.temp.js --output ${item}.min.js
     done
     echo "done"
     echo

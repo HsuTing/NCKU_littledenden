@@ -114,7 +114,7 @@ var Wellcome = React.createClass({
                       </Semantic.Header>
                       <Semantic.Divider className="clearing inverted"></Semantic.Divider>
 
-                      <Semantic.Accordion className="inverted">
+                      <Semantic.Accordion className="inverted dimmercontent">
                         {this.props.data.data.map(function(d) {
                           return (
                             <Question key={d.id} data={d}/>

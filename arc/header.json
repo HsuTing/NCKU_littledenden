@@ -1,27 +1,18 @@
 [
   {
-    "id": "home",
-    "text": "首頁",
-    "class": "menubutton active"
-  },
-  {
     "id": "info",
-    "text": "營期資訊",
-    "class": "menubutton"
+    "text": "營期資訊"
   },
   {
     "id": "wellcome",
-    "text": "歡迎新生",
-    "class": "menubutton"
+    "text": "歡迎新生"
   },
   {
     "id": "notice",
-    "text": "新生須知",
-    "class": "menubutton"
+    "text": "新生須知"
   },
   {
     "id": "school",
-    "text": "學校資訊／資源",
-    "class": "menubutton"
+    "text": "學校資訊／資源"
   }
 ]
