@@ -7,21 +7,21 @@
         "header": "選課資訊",
         "text": "第三階段選課：9/15～9/17",
         "url": "http://www.ncku.edu.tw/~register/chinese/choose.htm",
-        "img": "img/schedule.jpg"
+        "img": "img/notice/schedule.jpg"
       },
       {
         "id": "house",
         "header": "宿舍入住",
         "text": "繳費時間：8/28～9/4",
         "url": "http://housing.osa.ncku.edu.tw/files/13-1065-140091-1.php?Lang=zh-tw",
-        "img": "img/house.jpg"
+        "img": "img/notice/house.jpg"
       },
       {
         "id": "moodle",
         "header": "moodle教學平台",
         "text": "未來課程資訊皆會在此平台",
         "url": "http://moodle.ncku.edu.tw",
-        "img": "img/moodle.jpg"
+        "img": "img/notice/moodle.jpg"
       }
     ]
   },
