@@ -5,6 +5,7 @@ var School = require('./school.js');
 var Notice = require('./notice.js');
 var Wellcome = require('./wellcome.js');
 var Info = require('./info.js');
+var Footer = require('./footer.js');
 
 var Header = React.createClass({
   getInitialState: function() {
@@ -66,7 +67,6 @@ var Header = React.createClass({
           <embed src="img/icon.svg" width="120" height="40" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />
 
           <Semantic.Menu className="main right secondary">
-            <Semantic.Item key="home" className="menubutton" type="link" id="home" href="./">首頁</Semantic.Item>
             {this.state.data.map(function(d) {
               return (
                 <Semantic.Item key={d.id} className="menubutton" type="link" id={d.id} onClick={this.onClick.bind(this, d.id)}>

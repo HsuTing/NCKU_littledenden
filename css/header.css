@@ -1,3 +1,7 @@
+#header {
+  height: 45px;
+}
+
 .ui.segment.vertical.masthead.center.aligned  {
   padding: 0px;
 }
