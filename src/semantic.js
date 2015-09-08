@@ -48,6 +48,10 @@ Semantic.menu.ready = function() {
 //dimmer init
 Semantic.dimmer = {};
 Semantic.dimmer.ready = function() {
+  $('#img .ui.image.fluid').dimmer({
+    on: 'hover'
+  });
+
   $('.special.cards .image').dimmer({
     on: 'hover'
   });

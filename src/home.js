@@ -17,7 +17,7 @@ var Home = React.createClass({
       );
 
       React.render(
-        <Img url='img/center.jpg'/>,
+        <Img url='arc/img.json' value='0'/>,
         document.getElementById('img')
       );
 
