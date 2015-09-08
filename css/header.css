@@ -1,3 +1,18 @@
+#header {
+  height: 45px;
+}
+
 .ui.segment.vertical.masthead.center.aligned  {
   padding: 0px;
+}
+
+#img .ui.dimmer.active {
+  opacity: 0.8;
+}
+
+#img .ui.button.inverted,
+#img .ui.button.inverted:hover,
+#img .ui.button.inverted:focus {
+  box-shadow: 0 0 0 2px black inset!important;
+  color: black;
 }
