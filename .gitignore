@@ -1,4 +1,5 @@
 node_modules/
+bower_components/
 .module-cache/
 dist/*.js
 js/*.temp.js

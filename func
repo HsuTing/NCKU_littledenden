@@ -14,6 +14,7 @@ if [ $# = 1 ]; then
   if [ $1 = init ]; then
     cd ${path}
     npm install -i
+    cp bower_components/semantic/dist/semantic.min.css ../css/semantic.min.css
 
 #transform js from jsx
   elif [ $1 = jsx ]; then
