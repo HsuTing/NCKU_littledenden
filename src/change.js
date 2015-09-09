@@ -2,7 +2,7 @@ var $ = require('jquery');
 var React = require('react');
 var Semantic = require('./semantic.js');
 
-var Change = React.createClass({
+var Content = React.createClass({
   getInitialState: function() {
     $('#content').hide();
     $('#content').empty();
@@ -27,7 +27,6 @@ var Change = React.createClass({
       <Semantic.Segment className="vertical stripe">
         <div className="ui container content">
           <Semantic.Segment className="article raised">
-
           </Semantic.Segment>
         </div>
       </Semantic.Segment>
@@ -35,4 +34,4 @@ var Change = React.createClass({
   }
 });
 
-module.exports = Change;
+module.exports = Content;
