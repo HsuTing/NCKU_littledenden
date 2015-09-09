@@ -51,10 +51,6 @@ var Footer = React.createClass({
       }
     });
 
-    function copyright() {
-      return {__html: 'All Right Reserved © National Cheng Kung University Student Union 2015'};
-    }
-
     return (
       <Semantic.Segment className="vertical inverted footer">
 

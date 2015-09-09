@@ -1,8 +1,8 @@
 #!/bin/bash
 path=dist
 
-js=(semantic school notice wellcome info img header footer home index)
-#js=(header index)
+js=(semantic change school notice wellcome info img header footer home index)
+#js=(change index)
 minjs=(index)
 
 #color

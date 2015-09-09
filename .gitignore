@@ -4,3 +4,4 @@ bower_components/
 dist/*.js
 js/*.temp.js
 *log
+.DS_Store

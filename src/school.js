@@ -1,6 +1,7 @@
 var $ = require('jquery');
 var React = require('react');
 var Semantic = require('./semantic.js');
+var Change = require('./change.js');
 
 var Content = React.createClass({
   getInitialState: function() {
@@ -31,7 +32,7 @@ var Content = React.createClass({
               {this.props.data.header}
             </Semantic.Header>
 
-            <p>
+            <p className="gray">
               {this.props.data.text}
             </p>
           </div>
@@ -41,6 +42,37 @@ var Content = React.createClass({
 
     var Article = React.createClass({
       render: function() {
+        var Url = React.createClass({
+          onClick: function() {
+            React.render(
+              <Change url='arc/change.json'/>,
+              document.getElementById('content')
+            );
+          },
+          render: function() {
+            if(this.props.data.id == "oia") {
+              return (
+                <div className="ui center aligned container">
+                  <br/><Semantic.Button className="change inverted" onClick={this.onClick}>學長姊分享</Semantic.Button><br/>
+
+                  <a href={this.props.data.url.url}>
+                    {this.props.data.url.text}
+                  </a>
+                </div>
+              );
+            }
+            else {
+              return (
+                <div className="ui center aligned container">
+                  <a href={this.props.data.url.url}>
+                    {this.props.data.url.text}
+                  </a>
+                </div>
+              );
+            }
+          }
+        });
+
         return (
           <div className="ui container content">
             <Semantic.Segment className="article raised">
@@ -55,11 +87,7 @@ var Content = React.createClass({
                 );
               })}
 
-              <div className="ui center aligned container">
-                <a href={this.props.data.url.url}>
-                  {this.props.data.url.text}
-                </a>
-              </div>
+              <Url data={this.props.data}/>
             </Semantic.Segment>
           </div>
         );

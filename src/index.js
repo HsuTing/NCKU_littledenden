@@ -2,6 +2,7 @@ var React = require('react');
 var Header = require('./header.js');
 var Home = require('./home.js');
 var Footer = require('./footer.js');
+var Change = require('./change.js');
 
 (function() {
   React.render(

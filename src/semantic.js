@@ -23,6 +23,7 @@ Semantic.Accordion = Semantify.Accordion;
 Semantic.Table = Semantify.Table;
 Semantic.List = Semantify.List;
 Semantic.Grid = Semantify.Grid;
+Semantic.Label = Semantify.Label;
 
 //menu init
 Semantic.menu = {};

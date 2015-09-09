@@ -31,3 +31,27 @@
   color: darkgrey;
   font-weight: bold;
 }
+
+.ui.list>.item .description {
+  padding-top: 5px;
+}
+
+.ui.text.container.change {
+  padding: 0px;
+}
+
+.ui.label.bottom.attached  {
+  background-color: white;
+}
+
+.gray {
+  color: #1b1c1d;
+  opacity: 0.8;
+}
+
+#content .change.ui.button.inverted,
+#content .change.ui.button.inverted:hover,
+#content .change.ui.button.inverted:focus {
+  box-shadow: 0 0 0 2px black inset!important;
+  color: black;
+}

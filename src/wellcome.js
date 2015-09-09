@@ -2,7 +2,7 @@ var $ = require('jquery');
 var React = require('react');
 var Semantic = require('./semantic.js');
 
-var Wellcome = React.createClass({
+var Content = React.createClass({
   getInitialState: function() {
     $('#content').hide();
     $('#content').empty();
@@ -159,4 +159,4 @@ var Wellcome = React.createClass({
   }
 });
 
-module.exports = Wellcome;
+module.exports = Content;
